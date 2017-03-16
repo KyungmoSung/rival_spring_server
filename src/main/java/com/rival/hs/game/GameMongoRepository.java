@@ -5,8 +5,8 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 /**
  * Created by Minwoo on 2017. 3. 16..
  */
-public interface GameRepository extends MongoRepository<GameDo, String> {
+public interface GameMongoRepository extends MongoRepository<GameDo, String> {
 
-        public GameDo findByDomain(String domain);
+    public GameDo findById(String id);
+
 }
-

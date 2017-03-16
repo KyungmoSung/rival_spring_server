@@ -9,31 +9,31 @@ import java.util.Date;
  * Created by Minwoo on 2017. 3. 16..
  */
 
-@Document(collection = "user")
+@Document(collection = "GAME_TB")
 public class GameDo {
 
     @Id
     public String id;
-    private String game;
     private String title;
-    private Date date;
     private int people_num;
-    private String city;
-    private String stadium;
-    private String team_name;
 
 
     public GameDo() {
     }
 
-    public GameDo(String game, String title, Date date, int people_num, String city, String stadium, String team_name) {
-        this.game = game;
+    public GameDo(String id, String title, int people_num) {
+        this.id = id;
         this.title = title;
-        this.date = date;
         this.people_num = people_num;
-        this.city = city;
-        this.stadium = stadium;
-        this.team_name = team_name;
+    }
+
+    @Override
+    public String toString() {
+        return "GameDo{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", people_num=" + people_num +
+                '}';
     }
 }
 

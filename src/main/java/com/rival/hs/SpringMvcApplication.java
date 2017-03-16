@@ -1,25 +1,20 @@
 package com.rival.hs;
 
-import com.rival.hs.game.GameRepository;
+import com.rival.hs.game.GameDo;
+import com.rival.hs.game.GameMongoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.annotation.EnableAsync;
 
 
-
-@EnableAsync
-@Configuration
 @ComponentScan
 @SpringBootApplication
-@ConfigurationProperties()
 public class SpringMvcApplication  implements CommandLineRunner {
 
-
+	@Autowired
+	GameMongoRepository gameMongoRepository;
 	public static void main(String[] args) {
 		SpringApplication.run(SpringMvcApplication.class, args);
 	}
@@ -28,7 +23,8 @@ public class SpringMvcApplication  implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 
-		//gd.deleteAll();
+		gameMongoRepository.save(new GameDo("hello", "2", 3));
+
 
 	}
 

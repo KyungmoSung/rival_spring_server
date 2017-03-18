@@ -25,7 +25,7 @@ public class SpringMvcApplication  implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 
-		gameMongoRepository.save(new GameDo("1","2","3","4",5,"6","7","8"));
+		gameMongoRepository.save(new GameDo("축구","서울","3","축구할사람",5,"올림픽경기장","7","2017.3.13 17:00"));
 
 	}
 

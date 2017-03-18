@@ -76,5 +76,7 @@ public class WebController {
     @RequestMapping(value="/create")
     public String create(){return "register";}
 
+    @RequestMapping(value="/team")
+    public String team(){return "team";}
 
 }

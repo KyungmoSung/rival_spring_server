@@ -15,6 +15,8 @@ public class SpringMvcApplication  implements CommandLineRunner {
 
 	@Autowired
 	GameMongoRepository gameMongoRepository;
+
+
 	public static void main(String[] args) {
 		SpringApplication.run(SpringMvcApplication.class, args);
 	}
@@ -23,8 +25,7 @@ public class SpringMvcApplication  implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 
-		gameMongoRepository.save(new GameDo("hello", "2", 3));
-
+		gameMongoRepository.save(new GameDo("1","2","3","4",5,"6","7","8"));
 
 	}
 

@@ -2,10 +2,7 @@ package com.rival.hs.game;
 
 import com.rival.hs.kakao.KakaoDo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,10 +17,9 @@ public class GameController {
     GameMongoRepository gameMongoRepository;
 
     @RequestMapping(value="/game", method = RequestMethod.GET)
-    public GameDo index() {
+    public List<GameDo> index(@RequestParam(required = false) String city) {
 
 
-
-        return new GameDo();
+        return gameMongoRepository.findByCity(city);
     }
 }

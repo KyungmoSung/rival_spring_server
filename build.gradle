@@ -47,7 +47,8 @@ dependencies {
 	compile("org.springframework.boot:spring-boot-starter-jdbc")
 	compile("mysql:mysql-connector-java:5.1.31")
 
-	compile("org.springframework.boot:spring-boot-starter-data-mongodb")
-
+	//compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+	compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+	compile('org.springframework.boot:spring-boot-starter-web')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }

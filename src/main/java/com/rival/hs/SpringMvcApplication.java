@@ -1,6 +1,6 @@
 package com.rival.hs;
 
-import com.rival.hs.game.GameRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -12,11 +12,9 @@ import org.springframework.scheduling.annotation.EnableAsync;
 
 
 
-@EnableAsync
-@Configuration
 @ComponentScan
 @SpringBootApplication
-@ConfigurationProperties()
+
 public class SpringMvcApplication  implements CommandLineRunner {
 
 

@@ -12,7 +12,6 @@ import java.util.Date;
 @Document(collection = "GAME_TB")
 public class GameDo {
 
-    @Id
     public String id;
 
     private String game_type;
@@ -41,6 +40,68 @@ public class GameDo {
         this.time_game = time_game;
     }
 
+    public String getGame_type() {
+        return game_type;
+    }
 
+    public void setGame_type(String game_type) {
+        this.game_type = game_type;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getContents() {
+        return contents;
+    }
+
+    public void setContents(String contents) {
+        this.contents = contents;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public int getPeople_num() {
+        return people_num;
+    }
+
+    public void setPeople_num(int people_num) {
+        this.people_num = people_num;
+    }
+
+    public String getStadium() {
+        return stadium;
+    }
+
+    public void setStadium(String stadium) {
+        this.stadium = stadium;
+    }
+
+    public String getTime_update() {
+        return time_update;
+    }
+
+    public void setTime_update(String time_update) {
+        this.time_update = time_update;
+    }
+
+    public String getTime_game() {
+        return time_game;
+    }
+
+    public void setTime_game(String time_game) {
+        this.time_game = time_game;
+    }
 }
 

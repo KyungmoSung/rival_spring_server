@@ -2,6 +2,7 @@ package com.rival.hs.game;
 
 import com.rival.hs.kakao.KakaoDo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.json.GsonJsonParser;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +19,10 @@ public class GameController {
 
     @RequestMapping(value="/game", method = RequestMethod.GET)
     public List<GameDo> index(@RequestParam(required = false) String city) {
-        return gameMongoRepository.findAll();
+
+        List<GameDo> t = gameMongoRepository.findByCity(city);
+        System.out.println(t.toString());
+
+        return gameMongoRepository.findByCity(city);
     }
 }

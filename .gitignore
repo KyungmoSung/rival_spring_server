@@ -85,4 +85,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 application.yml
+
 src/main/webapp/
+
+.idea/*

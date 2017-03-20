@@ -84,4 +84,6 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-src/test/resources/
+application.yml
+
+.idea/*

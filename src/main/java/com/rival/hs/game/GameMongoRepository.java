@@ -9,11 +9,7 @@ import java.util.List;
  */
 
 public interface GameMongoRepository extends MongoRepository<GameDo, String> {
-
     public List<GameDo> findByCity(String city);
-
-    public List<GameDo> findAll();
-
 
     //public List<GameDo> find
 

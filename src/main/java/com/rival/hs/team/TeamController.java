@@ -19,13 +19,23 @@ public class TeamController {
     @Autowired
     TeamMongoRepository teamMongoRepository;
 
-    @RequestMapping(value="/team", method = RequestMethod.GET)
-    public List<TeamDo> index(@RequestParam(required = false) String name) {
+    @RequestMapping(value="/team1", method = RequestMethod.GET)
+    public List<TeamDo> name(@RequestParam(required = false) String name) {
 
         List<TeamDo> t = teamMongoRepository.findByName(name);
         System.out.println(t.toString());
 
         return teamMongoRepository.findByName(name);
     }
+
+    @RequestMapping(value="/team2", method = RequestMethod.GET)
+    public List<TeamDo> cityandtype(@RequestParam(required = false) String city,@RequestParam(required = false) String game_type) {
+
+        List<TeamDo> t = teamMongoRepository.findByCityAndType(city,game_type);
+        System.out.println(t.toString());
+
+        return teamMongoRepository.findByCityAndType(city,game_type);
+    }
+
 }
 

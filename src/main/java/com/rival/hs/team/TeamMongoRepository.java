@@ -2,6 +2,7 @@ package com.rival.hs.team;
 
 import com.rival.hs.game.GameDo;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 
 import java.util.List;
 
@@ -10,7 +11,11 @@ import java.util.List;
  */
 public interface TeamMongoRepository extends MongoRepository<TeamDo, String> {
 
-    public List<TeamDo> findByName(String name);
+    List<TeamDo> findByName(String name);
+
+
+    @Query(value = "{ 'city' : ?0, 'game_type' : ?1 }")
+    List<TeamDo> findByCityAndType(String city,String game_type);
 
     //public List<TeamDo> findAll();
 

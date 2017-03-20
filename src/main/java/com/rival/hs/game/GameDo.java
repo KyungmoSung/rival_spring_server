@@ -29,6 +29,7 @@ public class GameDo {
     public GameDo() {
     }
 
+
     public GameDo(String game_type, String city, String contents, String title, int people_num, String stadium, String time_update, String time_game) {
         this.game_type = game_type;
         this.city = city;

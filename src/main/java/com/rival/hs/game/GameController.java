@@ -18,11 +18,15 @@ public class GameController {
     GameMongoRepository gameMongoRepository;
 
     @RequestMapping(value="/game", method = RequestMethod.GET)
-    public List<GameDo> index(@RequestParam(required = false) String city) {
+    public List<GameDo> index(@RequestParam(required = false) String city,@RequestParam(required = false) String game_type) {
 
-        List<GameDo> t = gameMongoRepository.findByCity(city);
+
+
+
+        List<GameDo> t = gameMongoRepository.findByCityAndType(city,game_type);
         System.out.println(t.toString());
 
-        return gameMongoRepository.findByCity(city);
+        return gameMongoRepository.findByCityAndType(city,game_type);
     }
+
 }

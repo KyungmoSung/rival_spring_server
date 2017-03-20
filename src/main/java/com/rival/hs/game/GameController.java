@@ -20,7 +20,6 @@ public class GameController {
     @RequestMapping(value="/game", method = RequestMethod.GET)
     public List<GameDo> index(@RequestParam(required = false) String city) {
 
-
         List<GameDo> t = gameMongoRepository.findByCity(city);
         System.out.println(t.toString());
 

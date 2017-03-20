@@ -22,7 +22,7 @@
 				<!-- Header -->
 				<!-- Note: The "styleN" class below should match that of the banner element. -->
 					<header id="header" class="alt style2">
-						<a href="index.html" class="logo"><strong>Forty</strong> <span>by HTML5 UP</span></a>
+						<a th:href="@{/index}" class="logo"><strong>Forty</strong> <span>by HTML5 UP</span></a>
 						<nav>
 							<a href="#menu">Menu</a>
 						</nav>
@@ -31,10 +31,10 @@
 				<!-- Menu -->
 					<nav id="menu">
 						<ul class="links">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="landing.html">Landing</a></li>
-							<li><a href="generic.html">Generic</a></li>
-							<li><a href="elements.html">Elements</a></li>
+							<li><a th:href="@{/index}">Home</a></li>
+							<li><a th:href="@{/landing}">Landing</a></li>
+							<li><a th:href="@{/generic}">Generic</a></li>
+							<li><a th:href="@{/elements}">Elements</a></li>
 						</ul>
 						<ul class="actions vertical">
 							<li><a href="#" class="button special fit">Get Started</a></li>
@@ -44,15 +44,15 @@
 
 				<!-- Banner -->
 				<!-- Note: The "styleN" class below should match that of the header element. -->
-					<section id="banner" class="style2">
-						<div class="inner">
+									<section id="banner" class="style2">
+										<div class="inner">
 							<span class="image">
 								<img src="img/pic07.jpg" alt="" />
 							</span>
-							<header class="major">
-								<h1>Landing</h1>
-							</header>
-							<div class="content">
+											<header class="major">
+												<h1>Landing</h1>
+											</header>
+											<div class="content">
 								<p>Lorem ipsum dolor sit amet nullam consequat<br />
 								sed veroeros. tempus adipiscing nulla.</p>
 							</div>
@@ -75,7 +75,7 @@
 						<!-- Two -->
 							<section id="two" class="spotlights">
 								<section>
-									<a href="generic.html" class="image">
+									<a th:href="@{/generic}" class="image">
 										<img src="img/pic08.jpg" alt="" data-position="center center" />
 									</a>
 									<div class="content">
@@ -85,13 +85,13 @@
 											</header>
 											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
 											<ul class="actions">
-												<li><a href="generic.html" class="button">Learn more</a></li>
+												<li><a th:href="@{/generic}" class="button">Learn more</a></li>
 											</ul>
 										</div>
 									</div>
 								</section>
 								<section>
-									<a href="generic.html" class="image">
+									<a th:href="@{/generic}" class="image">
 										<img src="img/pic09.jpg" alt="" data-position="top center" />
 									</a>
 									<div class="content">
@@ -101,13 +101,13 @@
 											</header>
 											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
 											<ul class="actions">
-												<li><a href="generic.html" class="button">Learn more</a></li>
+												<li><a th:href="@{/generic}" class="button">Learn more</a></li>
 											</ul>
 										</div>
 									</div>
 								</section>
 								<section>
-									<a href="generic.html" class="image">
+									<a th:href="@{/generic}" class="image">
 										<img src="img/pic10.jpg" alt="" data-position="25% 25%" />
 									</a>
 									<div class="content">
@@ -117,7 +117,7 @@
 											</header>
 											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
 											<ul class="actions">
-												<li><a href="generic.html" class="button">Learn more</a></li>
+												<li><a th:href="@{/generic}" class="button">Learn more</a></li>
 											</ul>
 										</div>
 									</div>
@@ -132,7 +132,7 @@
 									</header>
 									<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
 									<ul class="actions">
-										<li><a href="generic.html" class="button next">Get Started</a></li>
+										<li><a th:href="@{/generic}" class="button next">Get Started</a></li>
 									</ul>
 								</div>
 							</section>

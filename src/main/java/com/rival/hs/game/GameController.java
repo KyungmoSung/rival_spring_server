@@ -17,6 +17,7 @@ public class GameController {
     GameMongoRepository gameMongoRepository;
 
     @RequestMapping(value="/game", method = RequestMethod.GET)
-    public GameDo index() {
+    public List<GameDo> index(@RequestParam(required = false) String city) {
+        return gameMongoRepository.findAll();
     }
 }

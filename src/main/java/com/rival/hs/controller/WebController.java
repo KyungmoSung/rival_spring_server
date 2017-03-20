@@ -76,5 +76,14 @@ public class WebController {
     @RequestMapping(value="/create")
     public String create(){return "register";}
 
+    @RequestMapping(value="/landing")
+    public String Landing(){return "landing";}
+
+    @RequestMapping(value="/generic")
+    public String Generic(){return "generic";}
+
+    @RequestMapping(value="/elements")
+    public String Elements(){return "elements";}
+
 
 }

@@ -13,15 +13,11 @@ import java.util.Date;
 public class GameDo {
 
     public String id;
-
     private String game_type;
     private String city;
-
     private String contents;
-
     private String title;
     private int people_num;
-
     private String stadium;
     private String time_update;
     private String time_game;

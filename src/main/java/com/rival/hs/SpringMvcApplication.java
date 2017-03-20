@@ -2,7 +2,9 @@ package com.rival.hs;
 
 import com.rival.hs.game.GameDo;
 import com.rival.hs.game.GameMongoRepository;
+import com.rival.hs.team.TeamMongoRepository;
 import com.rival.hs.user.UserDo;
+import com.rival.hs.team.TeamDo;
 import com.rival.hs.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -18,6 +20,7 @@ public class SpringMvcApplication  implements CommandLineRunner {
 
 	@Autowired
 	GameMongoRepository gameMongoRepository;
+	TeamMongoRepository teamMongoRepository;
 	UserRepository userRepository;
 
 	public static void main(String[] args) {
@@ -28,7 +31,7 @@ public class SpringMvcApplication  implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 
-		gameMongoRepository.save(new GameDo("축구","서울","3","축구할사람",5,"올림픽경기장","7","2017.3.13 17:00"));
+		//gameMongoRepository.save(new GameDo("축구","서울","3","축구할사람",5,"올림픽경기장","7","2017.3.13 17:00"));
 
 		//userRepository.save(new UserDo("tkd","park",25));
 

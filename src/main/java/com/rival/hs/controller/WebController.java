@@ -85,5 +85,7 @@ public class WebController {
     @RequestMapping(value="/elements")
     public String Elements(){return "elements";}
 
+    @RequestMapping(value="/team")
+    public String team(){return "team";}
 
 }

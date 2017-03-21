@@ -14,8 +14,11 @@ public class GameDo {
 
     public String id;
 
-    private String game_type;
+    private String type;
     private String city;
+
+
+    private String team;
 
     private String contents;
 
@@ -30,9 +33,10 @@ public class GameDo {
     }
 
 
-    public GameDo(String game_type, String city, String contents, String title, int people_num, String stadium, String time_update, String time_game) {
-        this.game_type = game_type;
+    public GameDo(String type, String city,String team, String contents, String title, int people_num, String stadium, String time_update, String time_game) {
+        this.type = type;
         this.city = city;
+        this.team = team;
         this.contents = contents;
         this.title = title;
         this.people_num = people_num;
@@ -41,12 +45,12 @@ public class GameDo {
         this.time_game = time_game;
     }
 
-    public String getGame_type() {
-        return game_type;
+    public String gettype() {
+        return type;
     }
 
-    public void setGame_type(String game_type) {
-        this.game_type = game_type;
+    public void settype(String type) {
+        this.type = type;
     }
 
     public String getCity() {
@@ -56,6 +60,10 @@ public class GameDo {
     public void setCity(String city) {
         this.city = city;
     }
+
+    public String getTeam() {return team;}
+
+    public void setTeam(String team) {this.team = team;}
 
     public String getContents() {
         return contents;

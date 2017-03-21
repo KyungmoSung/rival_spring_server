@@ -11,8 +11,8 @@ import java.util.List;
 
 public interface GameMongoRepository extends MongoRepository<GameDo, String> {
 
-    @Query(value = "{ 'city' : ?0, 'game_type' : ?1 }")
-    public List<GameDo> findByCityAndType(String city,String game_type);
+    @Query(value = "{ 'city' : ?0, 'type' : ?1 }")
+    public List<GameDo> findByCityAndType(String city,String type);
 
     //public List<GameDo> find
 

@@ -29,7 +29,7 @@ public class TeamController {
     }
 
     @RequestMapping(value="/team2", method = RequestMethod.GET)
-    public List<TeamDo> cityandtype(@RequestParam(required = false) String city,@RequestParam(required = false) String game_type) {
+    public List<TeamDo> cityAndType(@RequestParam(required = false) String city,@RequestParam(required = false) String game_type) {
 
         List<TeamDo> t = teamMongoRepository.findByCityAndType(city,game_type);
         System.out.println(t.toString());

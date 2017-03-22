@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 
@@ -24,15 +25,18 @@ public class KakaoController {
 
 
     @RequestMapping(value="/kakao", method = RequestMethod.POST)
-    public String kakao(@RequestBody KakaoDo body, ModelMap map, HttpSession httpSession) {
+    public ModelAndView kakao(@RequestBody KakaoDo body, ModelMap map, HttpSession httpSession) {
+
+        ModelAndView mav = new ModelAndView("redirect:/index");
 
 
-        httpSession.setAttribute("test", "hello");
+
         body.setKakao_info(jsonParser.parse(kakaoAPI.send(body.getAccess_token())));
+
+        httpSession.setAttribute("UserLogin", body);
 
 
         kakaoDao.save(body);
-
-        return "index";
+        return mav;
     }
 }

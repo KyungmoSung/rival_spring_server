@@ -14,8 +14,8 @@ public interface TeamMongoRepository extends MongoRepository<TeamDo, String> {
     List<TeamDo> findByName(String name);
 
 
-    @Query(value = "{ 'city' : ?0, 'game_type' : ?1 }")
-    List<TeamDo> findByCityAndType(String city,String game_type);
+    @Query(value = "{ 'city' : ?0, 'type' : ?1 }")
+    List<TeamDo> findByCityAndType(String city,String type);
 
     //public List<TeamDo> findAll();
 

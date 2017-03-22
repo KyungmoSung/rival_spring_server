@@ -2,7 +2,6 @@ package com.rival.hs.kakao;
 
 import java.io.DataOutputStream;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Scanner;

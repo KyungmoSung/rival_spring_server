@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+
 
 /**
  * Created by Minwoo on 2017. 3. 14..
@@ -20,11 +22,12 @@ public class KakaoController {
 
     private JsonParser jsonParser = new JsonParser();
 
+
     @RequestMapping(value="/kakao", method = RequestMethod.POST)
-    public String kakao(@RequestBody KakaoDo body, ModelMap map) {
+    public String kakao(@RequestBody KakaoDo body, ModelMap map, HttpSession httpSession) {
 
 
-
+        httpSession.setAttribute("test", "hello");
         body.setKakao_info(jsonParser.parse(kakaoAPI.send(body.getAccess_token())));
 
 

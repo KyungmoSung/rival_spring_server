@@ -14,28 +14,12 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
-jar {
-	baseName = 'demo'
-	version = '0.0.1-SNAPSHOT'
-}
+
 
 sourceCompatibility = 1.8
 
 repositories {
 	mavenCentral()
-}
-jar {
-	manifest {
-		attributes 'Implementation-Title': 'Gradle Quickstart',
-				'Implementation-Version': version,
-				'Main-Class': 'com.rival.hs.SpringMvcApplication',
-				'Manifest-Version': '1.0'
-
-	}
-}
-jar {
-	baseName = 'gs-accessing-data-mongodb'
-	version =  '0.1.0'
 }
 
 apply plugin:'war'

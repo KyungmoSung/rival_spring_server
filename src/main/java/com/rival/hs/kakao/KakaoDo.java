@@ -15,6 +15,7 @@ public class KakaoDo {
     private String refresh_token;
     private String expires_in;
     private String scope;
+    private Kakao_info kakao_info;
 
     public KakaoDo() {
     }
@@ -66,5 +67,34 @@ public class KakaoDo {
 
     public void setScope(String scope) {
         this.scope = scope;
+    }
+
+    public void setKakao_info(Kakao_info kakao_info) {
+        this.kakao_info = kakao_info;
+    }
+
+    public Kakao_info getKakao_info() {
+        return kakao_info;
+    }
+}
+class Kakao_info {
+    private String id;
+    private Kakao_properties kakao_properties;
+
+    public Kakao_info(String id, Kakao_properties kakao_properties) {
+        this.id = id;
+        this.kakao_properties = kakao_properties;
+    }
+}
+
+class Kakao_properties {
+    private String nickname;
+    private String profile_image;
+    private String thumbnail_image;
+
+    public Kakao_properties(String nickname, String profile_image, String thumbnail_image) {
+        this.nickname = nickname;
+        this.profile_image = profile_image;
+        this.thumbnail_image = thumbnail_image;
     }
 }

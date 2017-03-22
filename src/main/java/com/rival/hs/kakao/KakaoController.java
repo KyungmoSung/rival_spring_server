@@ -18,11 +18,14 @@ public class KakaoController {
 
     private KakaoAPI kakaoAPI = new KakaoAPI();
 
+    private JsonParser jsonParser = new JsonParser();
+
     @RequestMapping(value="/kakao", method = RequestMethod.POST)
     public String kakao(@RequestBody KakaoDo body, ModelMap map) {
 
 
-        System.out.println(kakaoAPI.send(body.getAccess_token()));
+
+        body.setKakao_info(jsonParser.parse(kakaoAPI.send(body.getAccess_token())));
 
 
         kakaoDao.save(body);

@@ -73,11 +73,12 @@ public class WebController {
 
 
     @RequestMapping(value="/login")
-    public String login() {
+    public String login(HttpSession session) {
+
+        System.out.println(session);
 
 
         return "login";
-
     }
     @RequestMapping(value="/logout")
     public String logout(HttpSession session) {

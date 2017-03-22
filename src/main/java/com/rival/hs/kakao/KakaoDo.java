@@ -76,6 +76,7 @@ public class KakaoDo {
     public Kakao_info getKakao_info() {
         return kakao_info;
     }
+
 }
 class Kakao_info {
     private String id;

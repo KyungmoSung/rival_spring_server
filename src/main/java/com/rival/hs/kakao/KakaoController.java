@@ -25,7 +25,7 @@ public class KakaoController {
 
 
     @RequestMapping(value="/kakao", method = RequestMethod.POST)
-    public ModelAndView kakao(@RequestBody KakaoDo body, ModelMap map, HttpSession httpSession) {
+    public String kakao(@RequestBody KakaoDo body, ModelMap map, HttpSession httpSession) {
 
         ModelAndView mav = new ModelAndView("redirect:/index");
 
@@ -33,10 +33,10 @@ public class KakaoController {
 
         body.setKakao_info(jsonParser.parse(kakaoAPI.send(body.getAccess_token())));
 
-        httpSession.setAttribute("UserLogin", body);
-
+        //httpSession.setAttribute("UserLogin", body.getAccess_token());
 
         kakaoDao.save(body);
-        return mav;
+
+        return "index";
     }
 }

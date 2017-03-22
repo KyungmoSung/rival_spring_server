@@ -13,6 +13,9 @@
 		<link rel="stylesheet" href="css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
+
+		<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
 	</head>
 	<body>
 
@@ -30,14 +33,16 @@
 				<!-- Menu -->
 					<nav id="menu">
 						<ul class="links">
-							<li><a th:href="@{/index}">Home</a></li>
+							<li><a th:href="@{/login}">Home</a></li>
 							<li><a th:href="@{/team}">Landing</a></li>
 							<li><a th:href="@{/generic}">Generic</a></li>
 							<li><a th:href="@{/elements}">Elements</a></li>
 						</ul>
 						<ul class="actions vertical">
 							<li><a href="#one" class="button special fit">Matching</a></li>
-							<li><a th:href="@{/login}" class="button fit">Log In</a></li>
+							<li th:if ="${session} == null"><a  th:href="@{/login} " class="button fit">LogIn</a></li>
+							<li  th:if ="${session} != null"><span id = "logout" class="button fit">LogOut</span></li>
+
 						</ul>
 					</nav>
 
@@ -210,6 +215,23 @@
 			<script src="js/util.js"></script>
 			<!--[if lte IE 8]><script src="js/ie/respond.min.js"></script><![endif]-->
 			<script src="js/main.js"></script>
+			<script>
+                Kakao.init('d32b44e7f16d211afcab733f0a367dda');
 
+
+				document.getElementById("logout").onclick = function () {
+                    Kakao.Auth.logout(function () {
+
+						console.log("test");
+                        setTimeout(function(){
+                            location.href = "/login"
+
+                        },1000);
+
+                    });
+
+                };
+
+			</script>
 	</body>
 </html>

@@ -32,6 +32,8 @@ public class Session {
         conn.setPort(port);
         conn.setDatabase(database);
         conn.setUsePool(true);
+        conn.setTimeout(100000);
+
         return conn;
     }
 

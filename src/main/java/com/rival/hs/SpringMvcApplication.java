@@ -13,11 +13,11 @@ import org.springframework.context.annotation.ComponentScan;
 
 @ComponentScan
 @SpringBootApplication
-
 public class SpringMvcApplication  implements CommandLineRunner {
 
 	@Autowired
 	GameMongoRepository gameMongoRepository;
+	@Autowired
 	UserRepository userRepository;
 
 	public static void main(String[] args) {

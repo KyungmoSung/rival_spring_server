@@ -86,6 +86,7 @@ Temporary Items
 .apdisk
 application.yml
 
-src/main/webapp/
-
 .idea/*
+.idea/
+src/main/webapp/
+src/test/resources/git

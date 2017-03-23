@@ -13,11 +13,11 @@ import org.springframework.context.annotation.ComponentScan;
 
 @ComponentScan
 @SpringBootApplication
-
 public class SpringMvcApplication  implements CommandLineRunner {
 
 	@Autowired
 	GameMongoRepository gameMongoRepository;
+	@Autowired
 	UserRepository userRepository;
 
 	public static void main(String[] args) {
@@ -28,7 +28,7 @@ public class SpringMvcApplication  implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 
-		gameMongoRepository.save(new GameDo("축구","서울","3","축구할사람",5,"올림픽경기장","7","2017.3.13 17:00"));
+		//gameMongoRepository.save(new GameDo("축구","서울","3","축구할사람",5,"올림픽경기장","7","2017.3.13 17:00"));
 
 		//userRepository.save(new UserDo("tkd","park",25));
 

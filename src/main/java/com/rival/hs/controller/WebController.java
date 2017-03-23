@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.util.*;
 
@@ -16,7 +17,10 @@ public class WebController {
 
 
     @RequestMapping(value="/index")
-    public String index() {
+    public String index(HttpSession httpSession) {
+
+        ModelAndView mav = new ModelAndView("test");
+        mav.addObject("messages", "hello");
 
         return "index";
     }
@@ -69,9 +73,19 @@ public class WebController {
 
 
     @RequestMapping(value="/login")
-    public String login() {
+    public String login(HttpSession session) {
+
+        System.out.println(session);
+
+
         return "login";
     }
+    @RequestMapping(value="/logout")
+    public String logout(HttpSession session) {
+        session.setAttribute("userLoginInfo", null);
+        return "redirect:login";
+    }
+
 
     @RequestMapping(value="/create")
     public String create(){return "register";}
@@ -85,5 +99,7 @@ public class WebController {
     @RequestMapping(value="/elements")
     public String Elements(){return "elements";}
 
+    @RequestMapping(value="/team")
+    public String team(){return "team";}
 
 }

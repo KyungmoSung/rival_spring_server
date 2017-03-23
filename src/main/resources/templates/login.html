@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html lang='ko' xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
 
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>AdminLTE 2 | Log in</title>
+    <title>Login</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
     <!-- Bootstrap 3.3.6 -->
@@ -91,6 +92,8 @@
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <!-- iCheck -->
 <script src="js/icheck.min.js"></script>
+
+
 <script>
     $(function () {
         $('input').iCheck({
@@ -108,31 +111,28 @@
     Kakao.Auth.createLoginButton({
         container: '#kakao-login-btn',
         success: function(authObj) {
-            function post(path, params, method) {
-                var method = method || "post"; // Set method to post by default if not specified.
+            $.ajax({
+                type: "POST",
+                url: "http://127.0.0.1:8080/kakao",
+                data:  JSON.stringify(authObj),
+                dataType: "json",
+                contentType : "application/json; charset=UTF-8",
+                success: function(data, textStatus) {
 
-                // The rest of this code assumes you are not using a library.
-                // It can be made less wordy if you use one.
-                var form = document.createElement("form");
-                form.setAttribute("method", method);
-                form.setAttribute("action", "/kakao");
+                    console.log(data);
 
-                var hiddenField = document.createElement("input");
+                    if (data.redirect) {
+                        // data.redirect contains the string URL to redirect to
+                    }
+                    else {
+                        // data.form contains the HTML for the replacement form
+                        $("#myform").replaceWith(data.form);
+                    }
+                }
+            });
+            window.location.href = "/index";
 
-                hiddenField.setAttribute("type", "hidden");
-                hiddenField.setAttribute("name", 'data');
 
-
-                hiddenField.setAttribute("value", JSON.stringify(authObj));
-                form.appendChild(hiddenField);
-
-                document.body.appendChild(form);
-                form.submit();
-            }
-            alert( JSON.stringify(authObj))
-
-            post("/login_kakao","");
-            //location.replace("/index");
         },
         fail: function(err) {
             alert(JSON.stringify(err));

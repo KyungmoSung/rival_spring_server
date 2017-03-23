@@ -14,6 +14,9 @@ import java.util.List;
 public class KakaoController {
 
     @Autowired
+    KakaoMongoRepository kakaoMongoRepository;
+
+    @Autowired
     private KakaoDao dao;
 
     @RequestMapping(value="/kakao", method = RequestMethod.POST)
@@ -46,6 +49,17 @@ public class KakaoController {
 
 
         return dao.listForBeanPropertyRowMapper();
+    }
+
+
+    @RequestMapping(value="/kakaoInfo", method = RequestMethod.GET)
+    public List<KakaoDo> kakaoInfo(@RequestParam(required = false) String _id) {
+
+
+        List<KakaoDo> t = kakaoMongoRepository.findByKakaoId(_id);
+        System.out.println(t.toString());
+
+        return kakaoMongoRepository.findByKakaoId(_id);
     }
 
 }

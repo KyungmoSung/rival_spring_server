@@ -11,80 +11,60 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @Document(collection = "USER_TB")
 public class KakaoDo {
 
-    private String _id;
-    private String nickname;
-    private String profile_image;
-    private String thumbnail_image;
-    private String status;
-    private String date;
-    @Field("kakao_info")
-    private  String kakao;
+    private String team;
 
-    public String getKakao() {
-        return kakao;
+    @Field("kakao_info._id")
+    private  String kakao_id;
+
+
+    @Field("kakao_info.kakao_properties.nickname")
+    private  String kakao_nickname;
+
+
+    @Field("kakao_info.kakao_properties.profile_image")
+    private  String kakao_profile_image;
+
+
+    @Field("kakao_info.kakao_properties.thumbnail_image")
+    private  String kakao_thumbnail_image;
+
+    public String getTeam() {
+        return team;
     }
 
-    public void setKakao(String kakao) {
-        this.kakao = kakao;
+    public void setTeam(String team) {
+        this.team = team;
     }
 
-
-    public String get_id() {
-        return _id;
+    public String getKakao_id() {
+        return kakao_id;
     }
 
-    public void set_id(String _id) {
-        this._id = _id;
+    public void setKakao_id(String kakao_id) {
+        this.kakao_id = kakao_id;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getKakao_nickname() {
+        return kakao_nickname;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setKakao_nickname(String kakao_nickname) {
+        this.kakao_nickname = kakao_nickname;
     }
 
-    public String getProfile_image() {
-        return profile_image;
+    public String getKakao_profile_image() {
+        return kakao_profile_image;
     }
 
-    public void setProfile_image(String profile_image) {
-        this.profile_image = profile_image;
+    public void setKakao_profile_image(String kakao_profile_image) {
+        this.kakao_profile_image = kakao_profile_image;
     }
 
-    public String getThumbnail_image() {
-        return thumbnail_image;
+    public String getKakao_thumbnail_image() {
+        return kakao_thumbnail_image;
     }
 
-    public void setThumbnail_image(String thumbnail_image) {
-        this.thumbnail_image = thumbnail_image;
+    public void setKakao_thumbnail_image(String kakao_thumbnail_image) {
+        this.kakao_thumbnail_image = kakao_thumbnail_image;
     }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public KakaoDo(String _id, String nickname, String profile_image, String thumbnail_image, String status, String date) {
-        this._id = _id;
-        this.nickname = nickname;
-        this.profile_image = profile_image;
-        this.thumbnail_image = thumbnail_image;
-        this.status = status;
-        this.date = date;
-    }
-
-
 }

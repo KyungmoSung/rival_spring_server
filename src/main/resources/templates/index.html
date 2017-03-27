@@ -6,13 +6,16 @@
 -->
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 	<head>
-		<title>Forty by HTML5 UP</title>
+		<title>RIVAL</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<!--[if lte IE 8]><script src="js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
+
+		<!--KAKAO SDK -->
+		<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 	</head>
 	<body>
 
@@ -25,21 +28,35 @@
 						<nav>
 							<a href="#menu">Menu</a>
 						</nav>
+						<nav>
+							<a href="#login">Login</a>
+						</nav>
 					</header>
 
 				<!-- Menu -->
 					<nav id="menu">
 						<ul class="links">
-							<li><a th:href="@{/index}">Home</a></li>
-							<li><a th:href="@{/landing}">Landing</a></li>
+							<li><a th:href="@{/login}">Home</a></li>
+							<li><a th:href="@{/team}">Landing</a></li>
 							<li><a th:href="@{/generic}">Generic</a></li>
 							<li><a th:href="@{/elements}">Elements</a></li>
 						</ul>
 						<ul class="actions vertical">
-							<li><a href="#one" class="button special fit">Matching</a></li>
-							<li><a th:href="@{/login}" class="button fit">Log In</a></li>
+							<li><a href="#one" class="button special fit">MATCHING</a></li>
 						</ul>
 					</nav>
+
+				<!-- Login -->
+					<nav id="login">
+						<ul class="links">
+							<li th:if ="${session} == null"><a th:href="@{/login} " class="button fit" id="kakao-login-btn">LogIn</a></li>
+							<li  th:if ="${session} != null"><span id = "logout" class="button fit">LogOut</span></li>
+						</ul>
+					<!--	<ul class="actions vertical">
+							<li><a href="#" class="button special fit">Login</a></li>
+						</ul>-->
+					</nav>
+
 
 				<!-- Banner -->
 					<section id="banner" class="major">
@@ -67,7 +84,7 @@
 										<img src="img/soccer.jpg" alt="" />
 									</span>
 									<header class="major">
-										<h3><a href="landing.html" class="link">축구, 풋살</a></h3>
+										<h3><a th:href="@{/landing}" class="link">축구, 풋살</a></h3>
 										<p>Foot Ball</p>
 									</header>
 								</article>
@@ -76,7 +93,7 @@
 										<img src="img/baseball.jpg" alt="" />
 									</span>
 									<header class="major">
-										<h3><a href="landing.html" class="link">야구</a></h3>
+										<h3><a th:href="@{/landing}" class="link">야구</a></h3>
 										<p>base ball</p>
 									</header>
 								</article>
@@ -85,7 +102,7 @@
 										<img src="img/basketball.jpg" alt="" />
 									</span>
 									<header class="major">
-										<h3><a href="landing.html" class="link">농구</a></h3>
+										<h3><a th:href="@{/landing}" class="link">농구</a></h3>
 										<p>basketball</p>
 									</header>
 								</article>
@@ -94,7 +111,7 @@
 										<img src="img/minisoccer.png" alt="" />
 									</span>
 									<header class="major">
-										<h3><a href="landing.html" class="link">족구</a></h3>
+										<h3><a th:href="@{/landing}" class="link">족구</a></h3>
 										<p> Foot Volleyball </p>
 									</header>
 								</article>
@@ -103,7 +120,7 @@
 										<img src="img/billiadr.png" alt="" />
 									</span>
 									<header class="major">
-										<h3><a href="landing.html" class="link">당구</a></h3>
+										<h3><a th:href="@{/landing}" class="link">당구</a></h3>
 										<p>Billiards</p>
 									</header>
 								</article>
@@ -112,7 +129,7 @@
 										<img src="img/bowling.jpg" alt="" />
 									</span>
 									<header class="major">
-										<h3><a href="landing.html" class="link">볼링</a></h3>
+										<h3><a th:href="@{/landing}" class="link">볼링</a></h3>
 										<p>Bowling</p>
 									</header>
 								</article>
@@ -126,7 +143,7 @@
 									</header>
 									<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
 									<ul class="actions">
-										<li><a href="landing.html" class="button next">Get Started</a></li>
+										<li><a th:href="@{/landing}" class="button next">Get Started</a></li>
 									</ul>
 								</div>
 							</section>
@@ -210,6 +227,16 @@
 			<script src="js/util.js"></script>
 			<!--[if lte IE 8]><script src="js/ie/respond.min.js"></script><![endif]-->
 			<script src="js/main.js"></script>
-
+			<script>
+                Kakao.init('d32b44e7f16d211afcab733f0a367dda');
+				document.getElementById("logout").onclick = function () {
+                    Kakao.Auth.logout(function () {
+						console.log("test");
+                        setTimeout(function(){
+                            location.href = "/login"
+                        },1000);
+                    });
+                };
+			</script>
 	</body>
 </html>

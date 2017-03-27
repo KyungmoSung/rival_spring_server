@@ -13,8 +13,8 @@ import java.util.List;
 public interface UserRepository extends MongoRepository<UserDo,String> {
 
    public List<UserDo> findAll();
-    public List<UserDo> findByUserid(String userid);
-    public List<UserDo> findByName(String name);
+   public List<UserDo> findByUserid(String userid);
+   public List<UserDo> findByName(String name);
 
 
 

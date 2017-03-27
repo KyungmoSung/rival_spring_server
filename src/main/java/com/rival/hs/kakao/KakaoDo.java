@@ -1,8 +1,10 @@
 package com.rival.hs.kakao;
 
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+
 
 /**
  * Created by Minwoo on 2017. 3. 14..

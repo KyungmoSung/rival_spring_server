@@ -22,10 +22,8 @@ public class GameDo {
     private String team;
 
     private String contents;
-
     private String title;
     private int people_num;
-
     private String stadium;
     private String time_update;
     private String time_game;

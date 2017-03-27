@@ -2,7 +2,10 @@ package com.rival.hs;
 
 import com.rival.hs.game.GameDo;
 import com.rival.hs.game.GameMongoRepository;
+import com.rival.hs.kakao.KakaoMongoRepository;
+import com.rival.hs.team.TeamMongoRepository;
 import com.rival.hs.user.UserDo;
+import com.rival.hs.team.TeamDo;
 import com.rival.hs.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -17,7 +20,9 @@ public class SpringMvcApplication  implements CommandLineRunner {
 
 	@Autowired
 	GameMongoRepository gameMongoRepository;
-	@Autowired
+	TeamMongoRepository teamMongoRepository;
+	KakaoMongoRepository kakaoMongoRepository;
+
 	UserRepository userRepository;
 
 	public static void main(String[] args) {

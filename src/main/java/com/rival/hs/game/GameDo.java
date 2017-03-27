@@ -18,6 +18,7 @@ public class GameDo {
     private String city;
 
 
+
     private String team;
 
     private String contents;
@@ -44,12 +45,19 @@ public class GameDo {
         this.time_update = time_update;
         this.time_game = time_game;
     }
+    public String getId() {
+        return id;
+    }
 
-    public String gettype() {
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getType() {
         return type;
     }
 
-    public void settype(String type) {
+    public void setType(String type) {
         this.type = type;
     }
 

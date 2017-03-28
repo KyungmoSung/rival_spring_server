@@ -82,8 +82,8 @@ public class WebController {
 
         System.out.println(session);
 
-
         return "login";
+
     }
     @RequestMapping(value="/logout")
     public String logout(HttpSession session) {

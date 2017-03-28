@@ -82,7 +82,7 @@ public class WebController {
     }
     @RequestMapping(value="/logout")
     public String logout(HttpSession session) {
-        session.setAttribute("userLoginInfo", null);
+        session.setAttribute("UserLogin", null);
         return "redirect:login";
     }
 

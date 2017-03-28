@@ -70,7 +70,9 @@
 									</header>
 
 									<ul class="actions">
-										<li><a href="generic.html" class="button">Make a team</a></li>
+										<li><a href="login.html.html" class="button" th:if="${session == null }">Login Please</a>
+											<a href="generic.html" class="button" th:if="${session != null }">Make a team</a>
+												</li>
 									</ul>
 								</div>
 							</section>

@@ -1,6 +1,7 @@
 package com.rival.hs.game;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 

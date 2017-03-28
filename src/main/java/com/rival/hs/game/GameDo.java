@@ -15,6 +15,7 @@ public class GameDo {
     public String id;
     private String game_type;
     private String city;
+    private String team;
     private String contents;
     private String title;
     private int people_num;
@@ -25,10 +26,11 @@ public class GameDo {
     public GameDo() {
     }
 
-    public GameDo(String game_type, String city, String contents, String title, int people_num, String stadium, String time_update, String time_game) {
+    public GameDo(String game_type, String city, String contents, String team, String title, int people_num, String stadium, String time_update, String time_game) {
         this.game_type = game_type;
         this.city = city;
         this.contents = contents;
+        this.team = team;
         this.title = title;
         this.people_num = people_num;
         this.stadium = stadium;
@@ -59,6 +61,10 @@ public class GameDo {
     public void setContents(String contents) {
         this.contents = contents;
     }
+
+    public String getTeam(){ return team;}
+
+    public void setTeam(String team){ this.team = team;}
 
     public String getTitle() {
         return title;

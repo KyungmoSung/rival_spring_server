@@ -16,6 +16,13 @@ import java.util.*;
 public class WebController {
 
 
+    @RequestMapping(value="/")
+    public String root() {
+
+        return "redirect:index";
+    }
+
+
     @RequestMapping(value="/index")
     public String index(HttpSession httpSession) {
 

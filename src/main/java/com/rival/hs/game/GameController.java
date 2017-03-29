@@ -35,6 +35,7 @@ public class GameController {
             @RequestParam(required = false) String type,
             @RequestParam(required = false) String city,
             @RequestParam(required = false) String team,
+            @RequestParam(required = false) String emblem,
             @RequestParam(required = false) String title,
             @RequestParam(required = false) String contents,
             @RequestParam(required = false) Integer people_num,
@@ -45,9 +46,9 @@ public class GameController {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd hh:mm");
         String now = dateFormat.format(cal.getTime());
 
-        System.out.println(type+"\n"+city+"\n"+team+"\n"+contents+"\n"+title+"\n"+people_num+"\n"+stadium+"\n"+now+"\n"+time_game);
+        System.out.println(type+"\n"+city+"\n"+team+"\n"+emblem+"\n"+contents+"\n"+title+"\n"+people_num+"\n"+stadium+"\n"+now+"\n"+time_game);
 
-        gameMongoRepository.save(new GameDo(type, city, team, contents, title, people_num, stadium, now, time_game));
+        gameMongoRepository.save(new GameDo(type, city, team,emblem, contents, title, people_num, stadium, now, time_game));
 
         }
 

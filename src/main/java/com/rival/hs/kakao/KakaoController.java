@@ -23,7 +23,6 @@ public class KakaoController {
     @Autowired
     private KakaoDao dao;
 
-
     private KakaoAPI kakaoAPI = new KakaoAPI();
     private JsonParser jsonParser = new JsonParser();
 

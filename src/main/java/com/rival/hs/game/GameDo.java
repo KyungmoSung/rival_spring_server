@@ -18,6 +18,7 @@ public class GameDo {
      * @param String    type            팀 뭐시기
      * @param String    city            팀 뭐시기
      * @param String    team            팀 뭐시기
+     * @param String    emblem            팀 뭐시기
      * @param String    contents        팀 뭐시기
      * @param String    title           팀 뭐시기
      * @param Integer   people_num      팀 뭐시기
@@ -31,21 +32,22 @@ public class GameDo {
     private String type;
     private String city;
     private String team;
+    private String emblem;
     private String contents;
     private String title;
     private int people_num;
     private String stadium;
     private String time_update;
     private String time_game;
-
     public GameDo() {
     }
 
 
-    public GameDo(String type, String city,String team, String contents, String title, int people_num, String stadium, String time_update, String time_game) {
+    public GameDo(String type, String city,String team,String emblem, String contents, String title, int people_num, String stadium, String time_update, String time_game) {
         this.type = type;
         this.city = city;
         this.team = team;
+        this.emblem = emblem;
         this.contents = contents;
         this.title = title;
         this.people_num = people_num;
@@ -81,6 +83,13 @@ public class GameDo {
 
     public void setTeam(String team) {this.team = team;}
 
+    public String getEmblem() {
+        return emblem;
+    }
+
+    public void setEmblem(String emblem) {
+        this.emblem = emblem;
+    }
     public String getContents() {
         return contents;
     }

@@ -20,20 +20,25 @@ public class KakaoDo {
      * @param String kakao_nickname    팀 뭐시기
      */
 
-
     private String team;
+    private String access_token;
+    private String token_type;
+    private String refresh_token;
+    private String expires_in;
+    private String scope;
+    private Kakao_info kakao_info;
 
-    @Field("kakao_info._id")
-    private  String kakao_id;
+    public KakaoDo() {
+    }
 
-    @Field("kakao_info.kakao_properties.nickname")
-    private  String kakao_nickname;
+    public KakaoDo(String access_token, String token_type, String refresh_token, String expires_in, String scope) {
+        this.access_token = access_token;
+        this.token_type = token_type;
+        this.refresh_token = refresh_token;
+        this.expires_in = expires_in;
+        this.scope = scope;
+    }
 
-    @Field("kakao_info.kakao_properties.profile_image")
-    private  String kakao_profile_image;
-
-    @Field("kakao_info.kakao_properties.thumbnail_image")
-    private  String kakao_thumbnail_image;
 
     public String getTeam() {
         return team;
@@ -43,51 +48,88 @@ public class KakaoDo {
         this.team = team;
     }
 
-    public String getKakao_id() {
-        return kakao_id;
+    public String getAccess_token() {
+        return access_token;
     }
 
-    public void setKakao_id(String kakao_id) {
-        this.kakao_id = kakao_id;
+    public void setAccess_token(String access_token) {
+        this.access_token = access_token;
     }
 
-    public String getKakao_nickname() {
-        return kakao_nickname;
+    public String getToken_type() {
+        return token_type;
     }
 
-    public void setKakao_nickname(String kakao_nickname) {
-        this.kakao_nickname = kakao_nickname;
+    public void setToken_type(String token_type) {
+        this.token_type = token_type;
     }
 
-    public String getKakao_profile_image() {
-        return kakao_profile_image;
+    public String getRefresh_token() {
+        return refresh_token;
     }
 
-    public void setKakao_profile_image(String kakao_profile_image) {
-        this.kakao_profile_image = kakao_profile_image;
+    public void setRefresh_token(String refresh_token) {
+        this.refresh_token = refresh_token;
     }
 
-    public String getKakao_thumbnail_image() {
-        return kakao_thumbnail_image;
+    public String getExpires_in() {
+        return expires_in;
     }
 
-    public void setKakao_thumbnail_image(String kakao_thumbnail_image) {
-        this.kakao_thumbnail_image = kakao_thumbnail_image;
+    public void setExpires_in(String expires_in) {
+        this.expires_in = expires_in;
     }
 
+    public String getScope() {
+        return scope;
+    }
+
+    public void setScope(String scope) {
+        this.scope = scope;
+    }
+
+    public void setKakao_info(Kakao_info kakao_info) {
+        this.kakao_info = kakao_info;
+    }
+
+    public Kakao_info getKakao_info() {
+        return kakao_info;
+    }
 
 }
+
 class Kakao_info {
-    private String id;
+
+
+    private String _id;
     private Kakao_properties kakao_properties;
 
-    public Kakao_info(String id, Kakao_properties kakao_properties) {
-        this.id = id;
+
+    public Kakao_info(String _id, Kakao_properties kakao_properties) {
+        this._id = _id;
+        this.kakao_properties = kakao_properties;
+    }
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
+    }
+
+    public Kakao_properties getKakao_properties() {
+        return kakao_properties;
+    }
+
+    public void setKakao_properties(Kakao_properties kakao_properties) {
         this.kakao_properties = kakao_properties;
     }
 
 }
+
 class Kakao_properties {
+
     private String nickname;
     private String profile_image;
     private String thumbnail_image;
@@ -97,4 +139,29 @@ class Kakao_properties {
         this.profile_image = profile_image;
         this.thumbnail_image = thumbnail_image;
     }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getProfile_image() {
+        return profile_image;
+    }
+
+    public void setProfile_image(String profile_image) {
+        this.profile_image = profile_image;
+    }
+
+    public String getThumbnail_image() {
+        return thumbnail_image;
+    }
+
+    public void setThumbnail_image(String thumbnail_image) {
+        this.thumbnail_image = thumbnail_image;
+    }
+
 }

@@ -1,0 +1,36 @@
+<header id="header" th:fragment="copy">
+    <a th:href="@{/index}" class="logo"><strong>RIVAL</strong> <span>by PSCK  </span></a>
+    <nav>
+        <a href="#menu">Menu</a>
+    </nav>
+    <nav th:if ="${session} == null">
+        <a href="#login">Login</a>
+    </nav>
+    <nav th:if="${session}!=null">
+        <a href="#login">Logout</a>
+    </nav>
+
+    <nav id="menu">
+        <ul class="actions vertical">
+            <li><a href="#one" class="button special fit">sport</a></li>
+        </ul>
+        <ul class="links">
+            <li><a th:href="@{/login}">Home</a></li>
+            <li><a th:href="@{/team}">Landing</a></li>
+            <li><a th:href="@{/generic}">Generic</a></li>
+            <li><a th:href="@{/elements}">Elements</a></li>
+        </ul>
+
+    </nav>
+    <!-- Login -->
+    <nav id="login">
+        <ul class="links">
+            <li class="button special fit">Login</li>
+            <li th:if ="${session} == null"><a th:href="@{/login} " class="button fit" id="kakao-login-btn">LogIn</a></li>
+            <li  th:if ="${session} != null"><span id = "logout" class="button fit">LogOut</span></li>
+        </ul>
+        <!--   <ul class="actions vertical">
+              <li><a href="#" class="button special fit">Login</a></li>
+           </ul>-->
+    </nav>
+</header>

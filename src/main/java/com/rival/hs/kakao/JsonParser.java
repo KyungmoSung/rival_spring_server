@@ -32,6 +32,4 @@ public class JsonParser {
 
         return new Kakao_info(jsonObject.get("id").toString(),new Kakao_properties(jsonObject2.get("nickname").toString(), jsonObject2.get("profile_image").toString(), jsonObject2.get("thumbnail_image").toString()));
     }
-
-
 }

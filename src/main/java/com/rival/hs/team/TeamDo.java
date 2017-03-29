@@ -16,6 +16,8 @@ public class TeamDo {
     private String captain;
 
     public TeamDo() {
+
+
     }
 
     public TeamDo(String id, String name, String type, String city, String introduce, String captain, String emblem, String image) {

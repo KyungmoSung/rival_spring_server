@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 
 /**
@@ -17,8 +18,18 @@ import javax.servlet.http.HttpSession;
 public class KakaoController {
 
     @Autowired
-    private KakaoDao kakaoDao;
+    KakaoMongoRepository kakaoMongoRepository;
 
+    @Autowired
+    private KakaoDao dao;
+
+    @RequestMapping(value="/kakao", method = RequestMethod.POST)
+    public List<KakaoDo> index(@RequestBody String body) {
+
+
+        System.out.println();
+
+    }
     private KakaoAPI kakaoAPI = new KakaoAPI();
 
     private JsonParser jsonParser = new JsonParser();
@@ -39,4 +50,16 @@ public class KakaoController {
 
         return "index";
     }
+
+
+    @RequestMapping(value="/kakaoInfo", method = RequestMethod.GET)
+    public List<KakaoDo> kakaoInfo(@RequestParam(required = false) String _id) {
+
+
+        List<KakaoDo> t = kakaoMongoRepository.findByKakaoId(_id);
+        System.out.println(t.toString());
+
+        return kakaoMongoRepository.findByKakaoId(_id);
+    }
+
 }

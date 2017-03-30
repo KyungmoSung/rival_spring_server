@@ -14,6 +14,8 @@ public class TeamDo {
     private String city;
     private String introduce;
     private String captain;
+    private String emblem;
+    private String image;
 
     public TeamDo() {
     }
@@ -29,8 +31,6 @@ public class TeamDo {
         this.image = image;
     }
 
-    private String emblem;
-    private String image;
 
     public String getId() {
         return id;
@@ -48,11 +48,12 @@ public class TeamDo {
         this.name = name;
     }
 
-    public String gettype() {
+
+    public String getType() {
         return type;
     }
 
-    public void settype(String type) {
+    public void setType(String type) {
         this.type = type;
     }
 

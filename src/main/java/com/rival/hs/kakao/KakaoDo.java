@@ -20,24 +20,18 @@ public class KakaoDo {
      * @param String expires_in    팀 뭐시기
      * @param String scope    팀 뭐시기
      */
-
+    private String team;
     private String access_token;
     private String token_type;
     private String refresh_token;
-    private int expires_in;
+    private String expires_in;
     private String scope;
-
-    private String team;
-
     private Kakao_info kakao_info;
 
-
-
     public KakaoDo() {
-
     }
 
-    public KakaoDo(String access_token, String token_type, String refresh_token, int expires_in, String scope) {
+    public KakaoDo(String access_token, String token_type, String refresh_token, String expires_in, String scope) {
         this.access_token = access_token;
         this.token_type = token_type;
         this.refresh_token = refresh_token;
@@ -45,7 +39,13 @@ public class KakaoDo {
         this.scope = scope;
     }
 
+    public String getTeam() {
+        return team;
+    }
 
+    public void setTeam(String team) {
+        this.team = team;
+    }
 
     public String getAccess_token() {
         return access_token;
@@ -71,11 +71,11 @@ public class KakaoDo {
         this.refresh_token = refresh_token;
     }
 
-    public int getExpires_in() {
+    public String getExpires_in() {
         return expires_in;
     }
 
-    public void setExpires_in(int expires_in) {
+    public void setExpires_in(String expires_in) {
         this.expires_in = expires_in;
     }
 
@@ -87,30 +87,33 @@ public class KakaoDo {
         this.scope = scope;
     }
 
-    public void setKakao_info(Kakao_info kakao_info) {
-        this.kakao_info = kakao_info;
-    }
-
     public Kakao_info getKakao_info() {
         return kakao_info;
+    }
+
+    public void setKakao_info(Kakao_info kakao_info) {
+        this.kakao_info = kakao_info;
     }
 }
 
 class Kakao_info {
-    private String id;
+
+
+    private String _id;
     private Kakao_properties kakao_properties;
 
-    public Kakao_info(String id, Kakao_properties kakao_properties) {
-        this.id = id;
+
+    public Kakao_info(String _id, Kakao_properties kakao_properties) {
+        this._id = _id;
         this.kakao_properties = kakao_properties;
     }
 
-    public String getId() {
-        return id;
+    public String get_id() {
+        return _id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public Kakao_properties getKakao_properties() {
@@ -121,7 +124,9 @@ class Kakao_info {
         this.kakao_properties = kakao_properties;
     }
 }
+
 class Kakao_properties {
+
     private String nickname;
     private String profile_image;
     private String thumbnail_image;
@@ -131,4 +136,29 @@ class Kakao_properties {
         this.profile_image = profile_image;
         this.thumbnail_image = thumbnail_image;
     }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getProfile_image() {
+        return profile_image;
+    }
+
+    public void setProfile_image(String profile_image) {
+        this.profile_image = profile_image;
+    }
+
+    public String getThumbnail_image() {
+        return thumbnail_image;
+    }
+
+    public void setThumbnail_image(String thumbnail_image) {
+        this.thumbnail_image = thumbnail_image;
+    }
+
 }

@@ -21,6 +21,13 @@ public class WebController {
     @Autowired
     GameMongoRepository gameMongoRepository;
 
+    @RequestMapping(value="/")
+    public String root() {
+
+        return "redirect:index";
+    }
+
+
     @RequestMapping(value="/index")
     public String index(HttpSession httpSession) {
 

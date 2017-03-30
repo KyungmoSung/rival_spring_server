@@ -12,6 +12,21 @@ import java.util.Date;
 @Document(collection = "GAME_TB")
 public class GameDo {
 
+    /**
+     * @author MinwooPark<pmw9027@outlook.kr>
+     * @param String    id              팀 뭐시기
+     * @param String    type            팀 뭐시기
+     * @param String    city            팀 뭐시기
+     * @param String    team            팀 뭐시기
+     * @param String    contents        팀 뭐시기
+     * @param String    title           팀 뭐시기
+     * @param Integer   people_num      팀 뭐시기
+     * @param String    stadium         팀 뭐시기
+     * @param String    time_update     팀 뭐시기
+     * @param String    time_game       팀 뭐시기
+     * @param String    city            팀 뭐시기
+     */
+
     public String id;
     private String type;
     private String city;

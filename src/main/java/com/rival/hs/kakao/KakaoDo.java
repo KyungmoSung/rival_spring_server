@@ -13,19 +13,24 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @Document(collection = "USER_TB")
 public class KakaoDo {
 
+    /**
+     * @author MinwooPark<pmw9027@outlook.kr>
+     * @param String team              팀 뭐시기
+     * @param String kakao_id          팀 뭐시기
+     * @param String kakao_nickname    팀 뭐시기
+     */
+
+
     private String team;
 
     @Field("kakao_info._id")
     private  String kakao_id;
 
-
     @Field("kakao_info.kakao_properties.nickname")
     private  String kakao_nickname;
 
-
     @Field("kakao_info.kakao_properties.profile_image")
     private  String kakao_profile_image;
-
 
     @Field("kakao_info.kakao_properties.thumbnail_image")
     private  String kakao_thumbnail_image;
@@ -68,5 +73,28 @@ public class KakaoDo {
 
     public void setKakao_thumbnail_image(String kakao_thumbnail_image) {
         this.kakao_thumbnail_image = kakao_thumbnail_image;
+    }
+
+
+}
+class Kakao_info {
+    private String id;
+    private Kakao_properties kakao_properties;
+
+    public Kakao_info(String id, Kakao_properties kakao_properties) {
+        this.id = id;
+        this.kakao_properties = kakao_properties;
+    }
+
+}
+class Kakao_properties {
+    private String nickname;
+    private String profile_image;
+    private String thumbnail_image;
+
+    public Kakao_properties(String nickname, String profile_image, String thumbnail_image) {
+        this.nickname = nickname;
+        this.profile_image = profile_image;
+        this.thumbnail_image = thumbnail_image;
     }
 }

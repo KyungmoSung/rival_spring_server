@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLDecoder;
 import java.net.URLEncoder;
 
 /**
@@ -15,14 +16,11 @@ public class StadiumAPI {
 
     StringBuilder urlBuilder = new StringBuilder("http://api.data.go.kr/openapi/c84c0583-a4b0-40f5-ab20-91d240efec0f"); /*URL*/
 
-
-
-
     public void send() {
 
         try {
-            urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "=78f2%2F0BGJJcNU0CYr6MlN348wkr1cW2yzN5s9Te5SVOdw9YuILlj%2BGt4cGrptcbMx%2BfPaNH2EMjhqacLCy9p7Q%3D%3D"); /*Service Key*/
-            urlBuilder.append("&" + URLEncoder.encode("파라미터영문명","UTF-8") + "=" + URLEncoder.encode("파라미터기본값", "UTF-8")); /*파라미터설명*/
+            urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8")+"=78f2%2F0BGJJcNU0CYr6MlN348wkr1cW2yzN5s9Te5SVOdw9YuILlj%2BGt4cGrptcbMx%2BfPaNH2EMjhqacLCy9p7Q%3D%3D");
+            //urlBuilder.append("&" + URLEncoder.encode("파라미터영문명","UTF-8") + "=" + URLEncoder.encode("파라미터기본값", "UTF-8")); /*파라미터설명*/
 
             URL url = new URL(urlBuilder.toString());
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();

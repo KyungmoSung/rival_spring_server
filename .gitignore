@@ -89,4 +89,3 @@ application.yml
 .idea/*
 .idea/
 src/main/webapp/
-src/test/resources/git

@@ -3,22 +3,20 @@
     <nav>
         <a href="#menu">Menu</a>
     </nav>
-    <nav th:if ="${session} == null">
-        <a href="#login">Login</a>
-    </nav>
-    <nav th:if="${session}!=null">
-        <a href="#login">Logout</a>
+    <nav >
+        <a th:if ="${session.userLoginInfo} == null" href="#login">Login</a>
+        <a th:if ="${session.userLoginInfo1} != null" href="#login">MyInfo</a>
     </nav>
 
+
+    <!-- Login -->
     <nav id="menu">
         <ul class="actions vertical">
             <li><a href="#one" class="button special fit">sport</a></li>
         </ul>
         <ul class="links">
-            <li><a th:href="@{/login}">Home</a></li>
-            <li><a th:href="@{/team}">Landing</a></li>
-            <li><a th:href="@{/generic}">Generic</a></li>
-            <li><a th:href="@{/elements}">Elements</a></li>
+            <li><a th:href="@{/index}">Home</a></li>
+            <li><a th:href="@{/team}">Mathcing</a></li>
         </ul>
 
     </nav>
@@ -26,11 +24,14 @@
     <nav id="login">
         <ul class="links">
             <li class="button special fit">Login</li>
-            <li th:if ="${session} == null"><a th:href="@{/login} " class="button fit" id="kakao-login-btn">LogIn</a></li>
-            <li  th:if ="${session} != null"><span id = "logout" class="button fit">LogOut</span></li>
         </ul>
-        <!--   <ul class="actions vertical">
-              <li><a href="#" class="button special fit">Login</a></li>
-           </ul>-->
+        <ul class="links">
+            <li><a href="javascript:loginWithKakao()">KaKaoLogin</a></li>
+            <li><a href="javascript:loginWithKakao()">FacebookLogin</a></li>
+            <li><a href="javascript:loginWithKakao()">NaverLogin</a></li>
+            <li><a th:href="@{/myinfo}">Account</a></li>
+            <li><a th:href="@{/logout}">Logout</a></li>
+        </ul>
     </nav>
+    <script src="js/kakao.js"></script>
 </header>

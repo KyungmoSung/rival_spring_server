@@ -28,9 +28,13 @@ public class KakaoController {
     private JsonParser jsonParser = new JsonParser();
 
     @RequestMapping(value="/kakao", method = RequestMethod.POST)
-    public void index(@RequestBody KakaoDo body) {
+    public void kakao(@RequestBody KakaoDo body,HttpSession session) {
 
-        System.out.println(body.toString());
+
+        System.out.println(session.getId());
+
+        body.setKakao_info(jsonParser.parse(kakaoAPI.send(body.getAccess_token())));
+        session.setAttribute("userLoginInfo",body.getKakao_info().getId());
         dao.save(body);
     }
 
@@ -41,7 +45,6 @@ public class KakaoController {
 
 
         List<KakaoDo> t = kakaoMongoRepository.findByKakaoId(_id);
-        System.out.println(t.toString());
 
         return kakaoMongoRepository.findByKakaoId(_id);
     }

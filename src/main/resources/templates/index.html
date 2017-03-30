@@ -175,16 +175,5 @@
 			<script src="js/util.js"></script>
 			<!--[if lte IE 8]><script src="js/ie/respond.min.js"></script><![endif]-->
 			<script src="js/main.js"></script>
-			<script>
-                Kakao.init('d32b44e7f16d211afcab733f0a367dda');
-				document.getElementById("logout").onclick = function () {
-                    Kakao.Auth.logout(function () {
-						console.log("test");
-                        setTimeout(function(){
-                            location.href = "/login"
-                        },1000);
-                    });
-                };
-			</script>
 	</body>
 </html>

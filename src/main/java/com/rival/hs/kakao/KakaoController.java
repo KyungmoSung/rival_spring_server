@@ -23,30 +23,22 @@ public class KakaoController {
     @Autowired
     private KakaoDao dao;
 
-    @RequestMapping(value="/kakao", method = RequestMethod.POST)
-    public List<KakaoDo> index(@RequestBody String body) {
-
-
-        System.out.println();
-
 
     private KakaoAPI kakaoAPI = new KakaoAPI();
-
     private JsonParser jsonParser = new JsonParser();
 
 
     @RequestMapping(value="/kakao", method = RequestMethod.POST)
-    public String kakao(@RequestBody KakaoDo body, ModelMap map, HttpSession httpSession) {
+    public String kakao(@RequestBody KakaoDo body, ModelMap map) {
 
         ModelAndView mav = new ModelAndView("redirect:/index");
 
 
-
-        body.setKakao_info(jsonParser.parse(kakaoAPI.send(body.getAccess_token())));
+        //body.setKakao_info(jsonParser.parse(kakaoAPI.send(body.getAccess_token())));
 
         //httpSession.setAttribute("UserLogin", body.getAccess_token());
 
-        kakaoDao.save(body);
+        //kakaoDao.save(body);
 
         return "index";
     }

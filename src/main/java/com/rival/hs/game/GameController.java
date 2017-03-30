@@ -30,25 +30,49 @@ public class GameController {
     }
 
     // 축구, 풋볼 게시판 가져오기
-    @RequestMapping(value="/soccer")
-    public String SoccerBoard(Model model, @RequestParam(required = false) String game_type){
+    @RequestMapping(value="/board", method = RequestMethod.GET)
+    public String SoccerBoard(Model model, @RequestParam(value="type", required = false) String type){
         String soccer = "축구";
         String baseball = "야구";
         String basketball = "농구";
         String volleyfootball = "족구";
         String billiards = "당구";
         String bowing = "볼링";
-        //List<GameDo> board = gameMongoRepository.findByType(game_type);
-        //board.forEach();
-        //model.addAttribute("soccerboard", board);
-        return "soccer";
-
-//        if(baseball.equals(game_type)){
-//            model.addAttribute("soccerboard",board);
-//            return "soccer";
-//        }
-
-
+        List<GameDo> board = gameMongoRepository.findByType(type);
+      /*  for (GameDo types: board) {
+            //축구
+            if(soccer.equals(type)) {
+                model.addAttribute("board",board);
+                return "board";
+            }
+            //야구
+            else if(baseball.equals(type)){
+                model.addAttribute("board",board);
+                return "board";
+            }
+            //농구
+            else if(basketball.equals(type)){
+                model.addAttribute("board",board);
+                return "board";
+            }
+            //족구
+            else if(volleyfootball.equals(type)){
+                model.addAttribute("board",board);
+                return "board";
+            }
+            //당구
+            else if(billiards.equals(type)){
+                model.addAttribute("board",board);
+                return "board";
+            }
+            //볼링
+            else if(bowing.equals(type)){
+                model.addAttribute("board",board);
+                return "board";
+            }
+        }*/
+        model.addAttribute("board",board);
+        return "board";
     }
 
     @RequestMapping(value="/save", method = RequestMethod.GET)

@@ -41,12 +41,12 @@ public class GameDo {
     public GameDo() {
     }
 
-
     public GameDo(String type, String city,String team, String contents, String title, int people_num, String stadium, String time_update, String time_game) {
         this.type = type;
         this.city = city;
         this.team = team;
         this.contents = contents;
+        this.team = team;
         this.title = title;
         this.people_num = people_num;
         this.stadium = stadium;

@@ -3,6 +3,9 @@ package com.rival.hs.controller;
 /**
  * Created by Sung on 2017. 3. 8..
  */
+import com.rival.hs.game.GameDo;
+import com.rival.hs.game.GameMongoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +18,8 @@ import java.util.*;
 @Controller
 public class WebController {
 
+    @Autowired
+    GameMongoRepository gameMongoRepository;
 
     @RequestMapping(value="/")
     public String root() {
@@ -93,12 +98,8 @@ public class WebController {
         return "redirect:login";
     }
 
-
     @RequestMapping(value="/create")
     public String create(){return "register";}
-
-    @RequestMapping(value="/landing")
-    public String Landing(){return "landing";}
 
     @RequestMapping(value="/generic")
     public String Generic(){return "generic";}

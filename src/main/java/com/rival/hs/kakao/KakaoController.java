@@ -14,7 +14,7 @@ import java.util.List;
  * Created by Minwoo on 2017. 3. 14..
  */
 
-@Controller
+@RestController
 public class KakaoController {
 
     @Autowired
@@ -23,33 +23,21 @@ public class KakaoController {
     @Autowired
     private KakaoDao dao;
 
-    @RequestMapping(value="/kakao", method = RequestMethod.POST)
-    public List<KakaoDo> index(@RequestBody String body) {
 
-
-        System.out.println();
-
-    }
     private KakaoAPI kakaoAPI = new KakaoAPI();
-
     private JsonParser jsonParser = new JsonParser();
 
-
     @RequestMapping(value="/kakao", method = RequestMethod.POST)
-    public String kakao(@RequestBody KakaoDo body, ModelMap map, HttpSession httpSession) {
-
-        ModelAndView mav = new ModelAndView("redirect:/index");
-
-
+    public void index(@RequestBody KakaoDo body,HttpSession session) {
 
         body.setKakao_info(jsonParser.parse(kakaoAPI.send(body.getAccess_token())));
+        session.setAttribute("id",body.getKakao_info().get_id());
 
-        //httpSession.setAttribute("UserLogin", body.getAccess_token());
-
-        kakaoDao.save(body);
-
-        return "index";
+        System.out.println(body.toString());
+        System.out.println("이상현짱");
+        dao.save(body);
     }
+
 
 
     @RequestMapping(value="/kakaoInfo", method = RequestMethod.GET)

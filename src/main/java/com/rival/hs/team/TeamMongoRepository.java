@@ -11,7 +11,10 @@ import java.util.List;
  */
 public interface TeamMongoRepository extends MongoRepository<TeamDo, String> {
 
-    List<TeamDo> findByName(String name);
+    public List<TeamDo> findByName(String name);
+    public List<TeamDo> findAll();
+    //List<TeamDo> findByMember_id(int id);
+    //public List<TeamDo> findByMember_id(String id);
 
 
     @Query(value = "{ 'city' : ?0, 'type' : ?1 }")

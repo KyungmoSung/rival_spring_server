@@ -63,43 +63,26 @@
 					<div id="main">
 
 						<!-- One -->
-							<section id="one" th:object="${MyteamList}">
+							<section id="one">
 								<div class="inner">
 									<header class="major">
-										<h2>Your team list</h2>
+										<h2>Make your team</h2>
 									</header>
-									<article  th:each = "team : ${MyteamList}" th:width="100" th:height="100" >
-										<h3><a class="link" th:text="${team.name}">sss</a></h3>
-									</article>
-
-
-
-
-
-									<ul class="actions">
-										<li><a href="login.html.html" class="button" th:if ="${session} == null">Login Please</a>
-											<a th:href="@{/teamNew}" class="button" th:if ="${session} != null">Make a team</a>
-												</li>
-									</ul>
+									<form action="#" th:action="@{/team_make}" th:object="${TeamDo}" method="post">
+										<p>Name: <input type="text" th:field="*{name}" /></p>
+										<p>type: <input type="text" th:field="*{type}"  /></p>
+										<p>city: <input type="text" th:field="*{city}"  /></p>
+										<p>captain name: <input type="text" th:field="*{captain}"  /></p>
+										<p>emblam: <input type="text" th:field="*{emblem}"  /></p>
+										<p>image: <input type="text" th:field="*{image}"  /></p>
+										<p>content: </p>
+										<p><textarea th:field="*{introduce}"  /></p>
+										<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+									</form>
 								</div>
 							</section>
-
-						<!-- Two -->
-							<section id="two" class="inner">
-								<section>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Apply others team</h3>
-											</header>
-											<ul class="actions">
-												<li><a href="generic.html" class="button">Learn more</a></li>
-											</ul>
-										</div>
-									</div>
-								</section>
-							</section>
 					</div>
+
 
 
 				<!-- Footer -->

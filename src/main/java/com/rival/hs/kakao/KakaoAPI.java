@@ -25,7 +25,7 @@ public class KakaoAPI {
 
             conn.setDoOutput(true);
             conn.setUseCaches(false);
-            conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+            conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
             conn.setRequestProperty("Authorization", "Bearer {"+access_token+"}");
 
 
@@ -50,6 +50,8 @@ public class KakaoAPI {
             System.out.println(error);
 
         }
+        System.out.println(stringBuilder.toString());
+
         return stringBuilder.toString();
     }
 

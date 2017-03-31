@@ -3,6 +3,7 @@ package com.rival.hs.controller;
 /**
  * Created by Sung on 2017. 3. 8..
  */
+import com.rival.hs.team.TeamDo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,13 @@ import java.util.*;
 
 @Controller
 public class WebController {
+
+
+    @RequestMapping(value="/")
+    public String root() {
+
+        return "redirect:index";
+    }
 
 
     @RequestMapping(value="/index")
@@ -99,7 +107,11 @@ public class WebController {
     @RequestMapping(value="/elements")
     public String Elements(){return "elements";}
 
-    @RequestMapping(value="/team")
-    public String team(){return "team";}
+
+    @RequestMapping(value="/teamNew")
+    public String teamNew(Model model){
+        model.addAttribute("TeamDo",new TeamDo());
+        return "teamNew";
+    }
 
 }

@@ -111,15 +111,14 @@
     Kakao.Auth.createLoginButton({
         container: '#kakao-login-btn',
         success: function(authObj) {
+            alert(JSON.stringify(authObj));
             $.ajax({
                 type: "POST",
-                url: "http://127.0.0.1:8080/kakao",
+                url: "http://localhost:8080/kakao",
                 data:  JSON.stringify(authObj),
                 dataType: "json",
                 contentType : "application/json; charset=UTF-8",
                 success: function(data, textStatus) {
-
-                    console.log(data);
 
                     if (data.redirect) {
                         // data.redirect contains the string URL to redirect to

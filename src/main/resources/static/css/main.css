@@ -4263,3 +4263,7 @@ body.is-login-visible #wrapper {
 			opacity: 1;
 			visibility: visible;
 		}
+
+#rightali {
+    float: right;
+}

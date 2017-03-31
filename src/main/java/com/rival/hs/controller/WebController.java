@@ -94,7 +94,7 @@ public class WebController {
     @RequestMapping(value="/logout")
     public String logout(HttpSession session) {
         session.setAttribute("userLoginInfo", null);
-        return "redirect:login";
+        return "redirect:index";
     }
 
     @RequestMapping(value="/create")

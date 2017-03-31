@@ -20,6 +20,7 @@ public class KakaoDo {
      * @param String expires_in    팀 뭐시기
      * @param String scope    팀 뭐시기
      */
+
     private String team;
     private String access_token;
     private String token_type;
@@ -38,6 +39,7 @@ public class KakaoDo {
         this.expires_in = expires_in;
         this.scope = scope;
     }
+
 
     public String getTeam() {
         return team;
@@ -87,12 +89,15 @@ public class KakaoDo {
         this.scope = scope;
     }
 
+
+
     public Kakao_info getKakao_info() {
         return kakao_info;
     }
 
     public void setKakao_info(Kakao_info kakao_info) {
         this.kakao_info = kakao_info;
+
     }
 }
 
@@ -122,6 +127,11 @@ class Kakao_info {
 
     public void setKakao_properties(Kakao_properties kakao_properties) {
         this.kakao_properties = kakao_properties;
+    }
+
+
+    public String getId() {
+        return _id;
     }
 }
 
@@ -160,5 +170,6 @@ class Kakao_properties {
     public void setThumbnail_image(String thumbnail_image) {
         this.thumbnail_image = thumbnail_image;
     }
+
 
 }

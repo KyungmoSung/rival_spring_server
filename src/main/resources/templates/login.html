@@ -106,37 +106,7 @@
 
 <script type='text/javascript'>
     // 사용할 앱의 JavaScript 키를 설정해 주세요.
-    Kakao.init('d32b44e7f16d211afcab733f0a367dda');
-    // 카카오 로그인 버튼을 생성합니다.
-    Kakao.Auth.createLoginButton({
-        container: '#kakao-login-btn',
-        success: function(authObj) {
-            alert(JSON.stringify(authObj));
-            $.ajax({
-                type: "POST",
-                url: "http://localhost:8080/kakao",
-                data:  JSON.stringify(authObj),
-                dataType: "json",
-                contentType : "application/json; charset=UTF-8",
-                success: function(data, textStatus) {
 
-                    if (data.redirect) {
-                        // data.redirect contains the string URL to redirect to
-                    }
-                    else {
-                        // data.form contains the HTML for the replacement form
-                        $("#myform").replaceWith(data.form);
-                    }
-                }
-            });
-            window.location.href = "/index";
-
-
-        },
-        fail: function(err) {
-            alert(JSON.stringify(err));
-        }
-    });
 </script>
 </body>
 </html>

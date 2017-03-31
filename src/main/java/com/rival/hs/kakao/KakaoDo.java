@@ -15,9 +15,10 @@ public class KakaoDo {
 
     /**
      * @author MinwooPark<pmw9027@outlook.kr>
-     * @param String team              팀 뭐시기
-     * @param String kakao_id          팀 뭐시기
-     * @param String kakao_nickname    팀 뭐시기
+     * @param String access_token              팀 뭐시기
+     * @param String refresh_token          팀 뭐시기
+     * @param String expires_in    팀 뭐시기
+     * @param String scope    팀 뭐시기
      */
 
     private String team;
@@ -88,25 +89,15 @@ public class KakaoDo {
         this.scope = scope;
     }
 
-    public void setKakao_info(Kakao_info kakao_info) {
-        this.kakao_info = kakao_info;
-    }
+
 
     public Kakao_info getKakao_info() {
         return kakao_info;
     }
 
-    @Override
-    public String toString() {
-        return "KakaoDo{" +
-                "team='" + team + '\'' +
-                ", access_token='" + access_token + '\'' +
-                ", token_type='" + token_type + '\'' +
-                ", refresh_token='" + refresh_token + '\'' +
-                ", expires_in='" + expires_in + '\'' +
-                ", scope='" + scope + '\'' +
-                ", kakao_info=" + kakao_info.getKakao_properties().getNickname() +
-                '}';
+    public void setKakao_info(Kakao_info kakao_info) {
+        this.kakao_info = kakao_info;
+
     }
 }
 
@@ -138,6 +129,10 @@ class Kakao_info {
         this.kakao_properties = kakao_properties;
     }
 
+
+    public String getId() {
+        return _id;
+    }
 }
 
 class Kakao_properties {
@@ -175,5 +170,6 @@ class Kakao_properties {
     public void setThumbnail_image(String thumbnail_image) {
         this.thumbnail_image = thumbnail_image;
     }
+
 
 }

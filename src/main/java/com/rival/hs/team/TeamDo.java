@@ -20,8 +20,13 @@ public class TeamDo {
     private String captain;
     @Field("member_id")
     private List<String> member_id = new ArrayList<>();
+    private String emblem;
+    private String image;
+
 
     public TeamDo() {
+
+
     }
 
     public TeamDo(String id, String name, String type, String city, String introduce, String captain, String emblem, String image,String memberid) {
@@ -36,8 +41,6 @@ public class TeamDo {
         this.member_id.add(memberid);
     }
 
-    private String emblem;
-    private String image;
 
     public String getId() {
         return id;
@@ -55,11 +58,12 @@ public class TeamDo {
         this.name = name;
     }
 
-    public String gettype() {
+
+    public String getType() {
         return type;
     }
 
-    public void settype(String type) {
+    public void setType(String type) {
         this.type = type;
     }
 

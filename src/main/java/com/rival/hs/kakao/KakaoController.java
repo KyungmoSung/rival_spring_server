@@ -9,7 +9,6 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-
 /**
  * Created by Minwoo on 2017. 3. 14..
  */
@@ -22,30 +21,25 @@ public class KakaoController {
 
     @Autowired
     private KakaoDao dao;
-
-
     private KakaoAPI kakaoAPI = new KakaoAPI();
     private JsonParser jsonParser = new JsonParser();
 
     @RequestMapping(value="/kakao", method = RequestMethod.POST)
-    public void index(@RequestBody KakaoDo body,HttpSession session) {
+    public void kakao(@RequestBody KakaoDo body,HttpSession session) {
+
+        System.out.println(session.getId());
 
         body.setKakao_info(jsonParser.parse(kakaoAPI.send(body.getAccess_token())));
-        session.setAttribute("id",body.getKakao_info().get_id());
+        session.setAttribute("id",body.getKakao_info().getId());
 
-        System.out.println(body.toString());
-        System.out.println("이상현짱");
         dao.save(body);
     }
-
-
 
     @RequestMapping(value="/kakaoInfo", method = RequestMethod.GET)
     public List<KakaoDo> kakaoInfo(@RequestParam(required = false) String _id) {
 
 
         List<KakaoDo> t = kakaoMongoRepository.findByKakaoId(_id);
-        System.out.println(t.toString());
 
         return kakaoMongoRepository.findByKakaoId(_id);
     }

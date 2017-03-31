@@ -42,3 +42,10 @@ function loginWithKakao() {
         }
     });
 };
+
+function logoutWithKakao() {
+    // 로그인 창을 띄웁니다.
+    Kakao.Auth.logout(function () {
+        window.location.href = "/logout";
+    })
+};

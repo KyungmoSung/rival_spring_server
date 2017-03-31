@@ -1,23 +1,6 @@
 <header id="header" th:fragment="copy" xmlns:th="http://www.w3.org/1999/xhtml">
 
-    <script src="js/kakao.js"></script>
 
-    <script th:inline="javascript">
-        Kakao.Auth.getStatus(function(statusObj) {
-            var kakao = statusObj['status'];
-            if (kakao == "connected") {
-                document.getElementById("menu_button").textContent=JSON.stringify(statusObj['user']['properties']['nickname']);
-                document.getElementById("kakao_login_menu_button").remove()
-                document.getElementById("facebook_login_menu_button").remove()
-                document.getElementById("naver_login_menu_button").remove()
-            }
-            else {
-                document.getElementById("menu_button").textContent="Login";
-                document.getElementById("account_menu_button").remove()
-                document.getElementById("logout_menu_button").remove()
-            }
-        });
-    </script>
         <a th:href="@{/index}" class="logo"><strong>RIVAL</strong> <span>by PSCK  </span></a>
     <nav>
         <a href="#menu">Menu</a>
@@ -47,7 +30,24 @@
             <li id="facebook_login_menu_button"><a href="javascript:loginWithKakao()">FacebookLogin</a></li>
             <li id="naver_login_menu_button"><a href="javascript:loginWithKakao()">NaverLogin</a></li>
             <li id="account_menu_button"><a th:href="@{/myinfo}">Account</a></li>
-            <li id="logout_menu_button"><a th:href="@{/logout}">Logout</a></li>
+            <li id="logout_menu_button"><a href="javascript:logoutWithKakao()">Logout</a></li>
         </ul>
     </nav>
+    <script src="js/kakao.js"></script>
+    <script th:inline="javascript">
+        Kakao.Auth.getStatus(function(statusObj) {
+            var kakao = statusObj['status'];
+            if (kakao == "connected") {
+                document.getElementById("menu_button").textContent=JSON.stringify(statusObj['user']['properties']['nickname']);
+                document.getElementById("kakao_login_menu_button").remove()
+                document.getElementById("facebook_login_menu_button").remove()
+                document.getElementById("naver_login_menu_button").remove()
+            }
+            else {
+                document.getElementById("menu_button").textContent="Login";
+                document.getElementById("account_menu_button").remove()
+                document.getElementById("logout_menu_button").remove()
+            }
+        });
+    </script>
 </header>

@@ -2,6 +2,7 @@ package com.rival.hs;
 
 import com.rival.hs.game.GameMongoRepository;
 import com.rival.hs.kakao.KakaoMongoRepository;
+import com.rival.hs.stadium.StadiumMongoRepository;
 import com.rival.hs.team.TeamMongoRepository;
 import com.rival.hs.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,9 +34,18 @@ public class SpringMvcApplication {
 	KakaoMongoRepository kakaoMongoRepository;
 	UserRepository userRepository;
 
+	@Autowired
+	StadiumMongoRepository stadiumMongoRepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(SpringMvcApplication.class, args);
+
+
+
+
 	}
+
+
 
 	@Bean
 	public HttpMessageConverter<String> responseBodyConverter() {

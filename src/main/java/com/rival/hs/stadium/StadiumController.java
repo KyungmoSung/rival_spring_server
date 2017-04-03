@@ -1,27 +1,29 @@
 package com.rival.hs.stadium;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Minwoo on 2017. 3. 29..
  */
 
-@RestController
+@Controller
 public class StadiumController {
 
 
     @Autowired
     StadiumMongoRepository stadiumMongoRepository;
 
-    @RequestMapping("/stadium")
-    public void stadium() {
 
-
-
+    @ResponseBody
+    @RequestMapping(value="/stadium", method = RequestMethod.GET)
+    public List<StadiumDo> index(@RequestParam(required = false) String type) {
+        System.out.println(type);
+        return stadiumMongoRepository.findByType(type);
     }
 
 

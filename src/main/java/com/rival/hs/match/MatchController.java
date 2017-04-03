@@ -23,7 +23,6 @@ public class MatchController {
 
     @ResponseBody
     @RequestMapping(value="/game", method = RequestMethod.GET)
-    @ResponseBody
     public List<MatchDo> index(@RequestParam(required = false) String city, @RequestParam(required = false) String type) {
 
 

@@ -1,6 +1,6 @@
 package com.rival.hs;
 
-import com.rival.hs.game.GameMongoRepository;
+import com.rival.hs.match.MatchMongoRepository;
 import com.rival.hs.kakao.KakaoMongoRepository;
 import com.rival.hs.team.TeamMongoRepository;
 import com.rival.hs.user.UserRepository;
@@ -23,7 +23,7 @@ public class SpringMvcApplication {
 
 
 	@Autowired
-	GameMongoRepository gameMongoRepository;
+	MatchMongoRepository matchMongoRepository;
 	TeamMongoRepository teamMongoRepository;
 	KakaoMongoRepository kakaoMongoRepository;
 	UserRepository userRepository;
@@ -34,7 +34,6 @@ public class SpringMvcApplication {
 
 
 	}
-
 
 
 	@Bean

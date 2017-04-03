@@ -15,7 +15,9 @@
 	<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
 	<!--KAKAO SDK -->
 	<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-
+	<style>
+		*.dis[disabled] {background:#eee; text-decoration:line-through;}
+	</style>
 </head>
 <body xmlns:th="http://www.w3.org/1999/xhtml">
 
@@ -33,9 +35,9 @@
 			<li th:if ="${session} == null"><a th:href="@{/login} " class="button fit" id="kakao-login-btn">LogIn</a></li>
 			<li  th:if ="${session} != null"><span id = "logout" class="button fit">LogOut</span></li>
 		</ul>
-<!--		<ul class="actions vertical">
-			<li><a href="#" class="button special fit">Login</a></li>
-		</ul>-->
+		<!--		<ul class="actions vertical">
+                    <li><a href="#" class="button special fit">Login</a></li>
+                </ul>-->
 	</nav>
 	<!-- Banner -->
 	<!-- Note: The "styleN" class below should match that of the header element. -->
@@ -61,11 +63,13 @@
 		<section id="one">
 			<div class="inner">
 				<header class="major">
-					<h2 th:text="${title}">축구&nbsp;·&nbsp;풋살</h2>
+					<h2 th:if="${title}=='축구'">축구&nbsp;·&nbsp;풋살</h2>
+					<h2 th:if="${title}=='야구'">야구</h2>
+					<h2 th:if="${title}=='농구'">농구</h2>
+					<h2 th:if="${title}=='족구'">족구</h2>
+					<h2 th:if="${title}=='당구'">당구</h2>
+					<h2 th:if="${title}=='볼링'">볼링</h2>
 				</header>
-		<!--		<header class="major" th:if="${board}=='야구'">
-					<h2>축구&nbsp;·&nbsp;풋살</h2>
-				</header>-->
 				<table class="table">
 					<tr class="table_tr">
 						<th>번호</th>
@@ -85,27 +89,29 @@
 					</tr>
 				</table>
 
+				<div class="paging">
+					<ul class="pagination pagination-sm" id="frmSearch">
+						<li th:classappend="${board.first} ? 'disabled'">
+							<a th:href="@{/matching?type=축구(page=0,size=10)}" class="button">&lt;</a>
+							<!--<a th:href="@{/matching?type=축구(page=${board.number-1},size=10)}" class=" button baseclass preclass">&lt;</a>-->
+						</li>
+
+						<li th:each="index :${#numbers.sequence(1, __${board.totalPages == 0}__ ? 1 : __${board.totalPages}__)}" th:classappend="${board.number+1==index} ? 'active'">
+							<a th:text="${index}" th:href="@{/matching?type=축구(page=${index-1},size=10)}" class=" button">1</a>
+						</li>
+
+						<li th:classappend="${board.last} ? 'disabled'">
+							<a th:href="@{/matching?type=축구(page=${board.totalPages-1},size=10)}" class=" button">&gt;</a>
+						</li> <!-- &raquo; -->
+					</ul>
+				</div>
 			</div>
 		</section>
 
 	</div>
 
 	<!-- Footer -->
-	<footer id="footer">
-		<div class="inner">
-			<ul class="icons">
-
-				<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
-				<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
-				<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
-				<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
-				<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-			</ul>
-			<ul class="copyright">
-				<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-			</ul>
-		</div>
-	</footer>
+	<div th:replace="footer :: copy"></div>
 
 </div>
 
@@ -127,11 +133,6 @@
             },1000);
         });
     };
-</script>
-
-<script>
-	//var link = document.location.href;
-
 </script>
 </body>
 </html>

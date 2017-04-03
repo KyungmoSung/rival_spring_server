@@ -88,10 +88,7 @@ public class WebController {
 
     @RequestMapping(value="/login")
     public String login(HttpSession session) {
-
-
         return "login";
-
     }
     @RequestMapping(value="/logout")
     public String logout(HttpSession session) {

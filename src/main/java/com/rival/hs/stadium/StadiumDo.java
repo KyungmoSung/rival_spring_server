@@ -176,4 +176,112 @@ public class StadiumDo {
     public void setId(String id) {
         this.id = id;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getStadium_name() {
+        return stadium_name;
+    }
+
+    public String getLocation_name() {
+        return location_name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getHoliday() {
+        return holiday;
+    }
+
+    public String getWeekday_time_start() {
+        return weekday_time_start;
+    }
+
+    public String getWeekday_time_end() {
+        return weekday_time_end;
+    }
+
+    public String getHoliday_time_start() {
+        return holiday_time_start;
+    }
+
+    public String getHoliday_time_end() {
+        return holiday_time_end;
+    }
+
+    public String getB_fee() {
+        return b_fee;
+    }
+
+    public String getStandard_time() {
+        return standard_time;
+    }
+
+    public String getFare() {
+        return fare;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getExcess_fare() {
+        return excess_fare;
+    }
+
+    public String getCapacity() {
+        return capacity;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public String getInformation() {
+        return information;
+    }
+
+    public String getBook_way() {
+        return book_way;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public String getRoad_address() {
+        return road_address;
+    }
+
+    public String getManagement_agency() {
+        return management_agency;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public String getPhone_num() {
+        return phone_num;
+    }
+
+    public String getHomepage() {
+        return homepage;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public String getData_time() {
+        return data_time;
+    }
 }

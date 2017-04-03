@@ -1,6 +1,8 @@
 package com.rival.hs.game;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -31,16 +33,16 @@ public class GameController {
     }
 
     // 축구, 풋볼 게시판 가져오기
-    @RequestMapping(value="/board", method = RequestMethod.GET)
-    public String SoccerBoard(Model model, @RequestParam(value="type", required = false) String type){
+    @RequestMapping(value="/matching", method = RequestMethod.GET)
+    public String SportBoard(Model model, @RequestParam(value="type", required = false) String type, Pageable pageable){
 
         System.out.println(type);
-        List<GameDo> board = gameMongoRepository.findByType(type);
+        Page<GameDo> board = gameMongoRepository.findByType(type, pageable);
 
         model.addAttribute("board",board);
         model.addAttribute("title",type);
 
-        return "board";
+        return "matching";
     }
 
     @RequestMapping(value="/save", method = RequestMethod.GET)

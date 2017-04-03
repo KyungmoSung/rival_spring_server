@@ -4279,3 +4279,9 @@ body.is-login-visible #wrapper {
 .table_tr {
 	text-align: center;
 }
+
+.paging {
+	position: absolute;
+	width: 100%;
+	left: 40%;
+}

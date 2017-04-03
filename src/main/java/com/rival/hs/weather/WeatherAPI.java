@@ -1,6 +1,5 @@
 package com.rival.hs.weather;
 
-import com.rival.hs.stadium.StadiumAPI;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

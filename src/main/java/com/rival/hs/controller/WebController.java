@@ -3,8 +3,10 @@ package com.rival.hs.controller;
 /**
  * Created by Sung on 2017. 3. 8..
  */
-import com.rival.hs.game.GameDo;
+
 import com.rival.hs.game.GameMongoRepository;
+import com.rival.hs.team.TeamDo;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -91,7 +93,8 @@ public class WebController {
     @RequestMapping(value="/logout")
     public String logout(HttpSession session) {
         session.setAttribute("userLoginInfo", null);
-        return "redirect:login";
+        return "redirect:index";
+
     }
 
     @RequestMapping(value="/create")
@@ -103,7 +106,11 @@ public class WebController {
     @RequestMapping(value="/elements")
     public String Elements(){return "elements";}
 
-    @RequestMapping(value="/team")
-    public String team(){return "team";}
+
+    @RequestMapping(value="/teamNew")
+    public String teamNew(Model model){
+        model.addAttribute("TeamDo",new TeamDo());
+        return "teamNew";
+    }
 
 }

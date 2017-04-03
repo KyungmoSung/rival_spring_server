@@ -27,11 +27,10 @@ public class KakaoController {
     @RequestMapping(value="/kakao", method = RequestMethod.POST)
     public void kakao(@RequestBody KakaoDo body,HttpSession session) {
 
-
         System.out.println(session.getId());
 
         body.setKakao_info(jsonParser.parse(kakaoAPI.send(body.getAccess_token())));
-        //session.setAttribute("userLoginInfo",body.getKakao_info().getId());
+        session.setAttribute("id",body.getKakao_info().getId());
 
         dao.save(body);
     }

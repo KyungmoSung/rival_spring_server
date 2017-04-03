@@ -45,14 +45,23 @@
 					<div id="main">
 
 						<!-- One -->
-							<section id="one">
+							<section id="one" th:object="${MyteamList}">
 								<div class="inner">
 									<header class="major">
 										<h2>Your team list</h2>
 									</header>
+									<article  th:each = "team : ${MyteamList}" th:width="100" th:height="100" >
+										<h3><a class="link" th:text="${team.name}">sss</a></h3>
+									</article>
+
+
+
+
 
 									<ul class="actions">
-										<li><a href="generic.html" class="button">Make a team</a></li>
+										<li><a href="login.html.html" class="button" th:if ="${session} == null">Login Please</a>
+											<a th:href="@{/teamNew}" class="button" th:if ="${session} != null">Make a team</a>
+												</li>
 									</ul>
 								</div>
 							</section>

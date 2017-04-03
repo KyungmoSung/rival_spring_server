@@ -1,8 +1,18 @@
 /**
  * Created by Minwoo on 2017. 3. 29..
  */
+
+
 Kakao.init('d32b44e7f16d211afcab733f0a367dda');
 // 카카오 로그인 버튼을 생성합니다.
+
+//
+
+function getStatus() {
+    Kakao.Auth.getStatus(function(statusObj) {
+        var kakao = statusObj['status']
+    });
+}
 function loginWithKakao() {
     // 로그인 창을 띄웁니다.
     Kakao.Auth.login({
@@ -31,4 +41,11 @@ function loginWithKakao() {
             alert(JSON.stringify(err));
         }
     });
+};
+
+function logoutWithKakao() {
+    // 로그인 창을 띄웁니다.
+    Kakao.Auth.logout(function () {
+        window.location.href = "/logout";
+    })
 };

@@ -4276,6 +4276,10 @@ body.is-login-visible #wrapper {
 			visibility: visible;
 		}
 
+#rightali {
+    float: right;
+}
+
 .table_tr {
 	text-align: center;
 }

@@ -1,6 +1,10 @@
 package com.rival.hs.team;
 
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Minwoo on 2017. 3. 18..
@@ -14,15 +18,18 @@ public class TeamDo {
     private String city;
     private String introduce;
     private String captain;
+    @Field("member_id")
+    private List<String> member_id = new ArrayList<>();
     private String emblem;
     private String image;
+
 
     public TeamDo() {
 
 
     }
 
-    public TeamDo(String id, String name, String type, String city, String introduce, String captain, String emblem, String image) {
+    public TeamDo(String id, String name, String type, String city, String introduce, String captain, String emblem, String image,String memberid) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -31,6 +38,7 @@ public class TeamDo {
         this.captain = captain;
         this.emblem = emblem;
         this.image = image;
+        this.member_id.add(memberid);
     }
 
 
@@ -99,5 +107,11 @@ public class TeamDo {
         this.image = image;
     }
 
+    public List<String> getMember_id() {
+        return member_id;
+    }
 
+    public void setMember_id(String member_id) {
+        this.member_id.add(member_id);
+    }
 }

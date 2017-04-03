@@ -21,6 +21,7 @@ public class GameController {
     @Autowired
     GameMongoRepository gameMongoRepository;
 
+    @ResponseBody
     @RequestMapping(value="/game", method = RequestMethod.GET)
     public List<GameDo> index(@RequestParam(required = false) String city,@RequestParam(required = false) String type) {
 
@@ -43,6 +44,7 @@ public class GameController {
         return "board";
     }
 
+    @ResponseBody
     @RequestMapping(value="/save", method = RequestMethod.GET)
     public void save(
             @RequestParam(required = false) String type,

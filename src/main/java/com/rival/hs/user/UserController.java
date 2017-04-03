@@ -2,10 +2,8 @@ package com.rival.hs.user;
 
 import com.rival.hs.game.GameDo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,11 +11,13 @@ import java.util.List;
 /**
  * Created by user on 2017-03-18.
  */
-@RestController
+@Controller
 public class UserController {
 
     @Autowired
     UserRepository userMongoRepository;
+
+    @ResponseBody
     @RequestMapping(value="/user", method = RequestMethod.GET)
     public List<UserDo> index(@RequestParam(required = false) String id, @RequestParam(required = false) String name) {
 

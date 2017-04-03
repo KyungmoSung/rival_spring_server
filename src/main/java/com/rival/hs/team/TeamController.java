@@ -23,6 +23,7 @@ public class TeamController {
     @Autowired
     TeamMongoRepository teamMongoRepository;
 
+    @ResponseBody
     @RequestMapping(value="/teamN", method = RequestMethod.GET)
     public List<TeamDo> name(@RequestParam(required = false) String name) {
 
@@ -32,6 +33,7 @@ public class TeamController {
         return teamMongoRepository.findByName(name);
     }
 
+    @ResponseBody
     @RequestMapping(value="/teamCT", method = RequestMethod.GET)
     public List<TeamDo> cityAndType(@RequestParam(required = false) String city,@RequestParam(required = false) String type) {
 
@@ -40,6 +42,7 @@ public class TeamController {
 
         return teamMongoRepository.findByCityAndType(city,type);
     }
+
     @RequestMapping(value = "/team")
     public String TeamList(Model model,HttpSession session)
     {

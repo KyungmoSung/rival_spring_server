@@ -1,6 +1,5 @@
 package com.rival.hs.team;
 
-import com.rival.hs.game.GameDo;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 

@@ -1,4 +1,4 @@
-package com.rival.hs.game;
+package com.rival.hs.match;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -7,10 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -18,18 +16,17 @@ import java.util.List;
  */
 
 @Controller
-public class GameController {
+public class MatchController {
 
     @Autowired
-    GameMongoRepository gameMongoRepository;
+    MatchMongoRepository matchMongoRepository;
 
     @RequestMapping(value="/game", method = RequestMethod.GET)
-    public List<GameDo> index(@RequestParam(required = false) String city,@RequestParam(required = false) String type) {
+    @ResponseBody
+    public List<MatchDo> index(@RequestParam(required = false) String city, @RequestParam(required = false) String type) {
 
-        List<GameDo> t = gameMongoRepository.findByCityAndType(city,type);
-        System.out.println(t.toString());
 
-        return gameMongoRepository.findByCityAndType(city,type);
+        return matchMongoRepository.findByCityAndType(city, type);
     }
 
     // 축구, 풋볼 게시판 가져오기
@@ -37,7 +34,7 @@ public class GameController {
     public String SportBoard(Model model, @RequestParam(value="type", required = false) String type, Pageable pageable){
 
         System.out.println(type);
-        Page<GameDo> board = gameMongoRepository.findByType(type, pageable);
+        Page<MatchDo> board = matchMongoRepository.findByType(type, pageable);
 
         model.addAttribute("board",board);
         model.addAttribute("title",type);
@@ -63,7 +60,7 @@ public class GameController {
 
         System.out.println(type+"\n"+city+"\n"+team+"\n"+emblem+"\n"+contents+"\n"+title+"\n"+people_num+"\n"+stadium+"\n"+now+"\n"+time_game);
 
-        gameMongoRepository.save(new GameDo(type, city, team,emblem, contents, title, people_num, stadium, now, time_game));
+        matchMongoRepository.save(new MatchDo(type, city, team,emblem, contents, title, people_num, stadium, now, time_game));
 
         }
 }

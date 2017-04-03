@@ -4,7 +4,7 @@ package com.rival.hs.controller;
  * Created by Sung on 2017. 3. 8..
  */
 
-import com.rival.hs.game.GameMongoRepository;
+import com.rival.hs.match.MatchMongoRepository;
 import com.rival.hs.team.TeamDo;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ import java.util.*;
 public class WebController {
 
     @Autowired
-    GameMongoRepository gameMongoRepository;
+    MatchMongoRepository matchMongoRepository;
 
     @RequestMapping(value="/")
     public String root() {

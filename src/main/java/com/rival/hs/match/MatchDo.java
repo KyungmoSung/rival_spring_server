@@ -1,16 +1,13 @@
-package com.rival.hs.game;
+package com.rival.hs.match;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.util.Date;
 
 /**
  * Created by Minwoo on 2017. 3. 16..
  */
 
 @Document(collection = "GAME_TB")
-public class GameDo {
+public class MatchDo {
 
     /**
      * @author MinwooPark<pmw9027@outlook.kr>
@@ -39,10 +36,11 @@ public class GameDo {
     private String stadium;
     private String time_update;
     private String time_game;
-    public GameDo() {
+    public MatchDo() {
+
     }
 
-    public GameDo(String type, String city,String team,String emblem, String contents, String title, int people_num, String stadium, String time_update, String time_game) {
+    public MatchDo(String type, String city, String team, String emblem, String contents, String title, int people_num, String stadium, String time_update, String time_game) {
 
         this.type = type;
         this.city = city;

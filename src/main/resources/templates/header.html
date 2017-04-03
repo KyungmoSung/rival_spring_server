@@ -24,8 +24,10 @@
     <!-- Login -->
     <nav id="login">
         <ul class="links">
-            <li class="button special fit">Login</li>
+            <li class="button special fit" th:if ="${session.userLoginInfo} == null">Login</li>
+            <li class="button special fit" th:if ="${session.userLoginInfo} != null">Logout</li>
         </ul>
+
         <ul id="loginmenu" class="links">
             <li id="kakao_login_menu_button"><a href="javascript:loginWithKakao()">KaKaoLogin</a></li>
             <li id="facebook_login_menu_button"><a href="javascript:loginWithKakao()">FacebookLogin</a></li>

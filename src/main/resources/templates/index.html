@@ -17,6 +17,33 @@
 		<!--KAKAO SDK -->
 		<script src="js/jquery.min.js"></script>
 		<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+		<script th:inline="javascript">
+			//축구 matching 페이지 이동
+			function soccer(){
+			    document.selectSoccer.submit();
+			}
+			//야구 matching 페이지 이동
+			function  baseball() {
+                document.selectBaseball.submit();
+            }
+            //농구 matching 페이지 이동
+            function basketball() {
+                document.selectBasketball.submit();
+            }
+            //족구 matching 페이지 이동
+            function volleyfootball() {
+                document.selectVolleyfootball.submit();
+            }
+			//당구 matching 페이지 이동
+            function billiards() {
+                document.selectBilliards.submit();
+            }
+			//볼링 matching 페이지 이동
+            function bowling() {
+                document.selectBowling.submit();
+            }
+		</script>
 	</head>
 	<body>
 		<!-- Wrapper -->
@@ -41,7 +68,6 @@
 
 				<!-- Main -->
 					<div id="main">
-
 						<!-- One -->
 							<section id="one" class="tiles">
 								<article>
@@ -49,8 +75,13 @@
 										<img src="img/soccer.jpg" alt="" />
 									</span>
 									<header class="major">
-										<h3><a th:href="@{/board?type=축구}" class="link">축구, 풋살</a></h3>
-										<p>Foot Ball</p>
+										<form name="selectSoccer" method="get" action="/matching">
+											<input type="hidden" name="type" value="축구"/>
+											<input type="hidden" name="page" value="0"/>
+											<input type="hidden" name="size" value="10"/>
+											<h3><a href="javascript:soccer()" class="link">축구, 풋살</a></h3>
+											<p>Foot Ball</p>
+										</form>
 									</header>
 								</article>
 								<article>
@@ -58,8 +89,13 @@
 										<img src="img/baseball.jpg" alt="" />
 									</span>
 									<header class="major">
-										<h3><a th:href="@{/board?type=야구}" class="link">야구</a></h3>
-										<p>base ball</p>
+										<form name="selectBaseball" method="get" action="/matching">
+											<input type="hidden" name="type" value="야구"/>
+											<input type="hidden" name="page" value="0"/>
+											<input type="hidden" name="size" value="10"/>
+											<h3><a href="javascript:baseball()" class="link">야구</a></h3>
+											<p>base ball</p>
+										</form>
 									</header>
 								</article>
 								<article>
@@ -67,8 +103,13 @@
 										<img src="img/basketball.jpg" alt="" />
 									</span>
 									<header class="major">
-										<h3><a th:href="@{/board?type=농구}" class="link">농구</a></h3>
-										<p>basketball</p>
+										<form name="selectBasketball" method="get" action="/matching">
+											<input type="hidden" name="type" value="농구"/>
+											<input type="hidden" name="page" value="0"/>
+											<input type="hidden" name="size" value="10"/>
+											<h3><a href="javascript:basketball()" class="link">농구</a></h3>
+											<p>basketball</p>
+										</form>
 									</header>
 								</article>
 								<article>
@@ -76,8 +117,13 @@
 										<img src="img/minisoccer.png" alt="" />
 									</span>
 									<header class="major">
-										<h3><a th:href="@{/board?type=족구}" class="link">족구</a></h3>
-										<p> Foot Volleyball </p>
+										<form name="selectVolleyfootball" method="get" action="/matching">
+											<input type="hidden" name="type" value="족구"/>
+											<input type="hidden" name="page" value="0"/>
+											<input type="hidden" name="size" value="10"/>
+											<h3><a href="javascript:volleyfootball()" class="link">족구</a></h3>
+											<p> Foot Volleyball </p>
+										</form>
 									</header>
 								</article>
 								<article>
@@ -85,8 +131,13 @@
 										<img src="img/billiadr.png" alt="" />
 									</span>
 									<header class="major">
-										<h3><a th:href="@{/board?type=당구}" class="link">당구</a></h3>
-										<p>Billiards</p>
+										<form name="selectBilliards" method="get" action="/matching">
+											<input type="hidden" name="type" value="당구"/>
+											<input type="hidden" name="page" value="0"/>
+											<input type="hidden" name="size" value="10"/>
+											<h3><a href="javascript:billiards()" class="link">당구</a></h3>
+											<p>Billiards</p>
+										</form>
 									</header>
 								</article>
 								<article>
@@ -94,8 +145,13 @@
 										<img src="img/bowling.jpg" alt="" />
 									</span>
 									<header class="major">
-										<h3><a th:href="@{/board?type=볼링}" class="link">볼링</a></h3>
-										<p>Bowling</p>
+										<form name="selectBowling" method="get" action="/matching">
+											<input type="hidden" name="type" value="볼링"/>
+											<input type="hidden" name="page" value="0"/>
+											<input type="hidden" name="size" value="10"/>
+											<h3><a href="javascript:bowling()" class="link">볼링</a></h3>
+											<p>Bowling</p>
+										</form>
 									</header>
 								</article>
 							</section>

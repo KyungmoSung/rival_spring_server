@@ -4276,12 +4276,16 @@ body.is-login-visible #wrapper {
 			visibility: visible;
 		}
 
-<<<<<<< HEAD
 #rightali {
     float: right;
 }
-=======
+
 .table_tr {
 	text-align: center;
 }
->>>>>>> 0a60224b25978ad727c926e7cddac8f20296a9cd
+
+.paging {
+	position: absolute;
+	width: 100%;
+	left: 40%;
+}

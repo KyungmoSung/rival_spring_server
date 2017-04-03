@@ -36,7 +36,6 @@ public class SpringMvcApplication {
 	}
 
 
-
 	@Bean
 	public HttpMessageConverter<String> responseBodyConverter() {
 		return new StringHttpMessageConverter(Charset.forName("UTF-8"));
